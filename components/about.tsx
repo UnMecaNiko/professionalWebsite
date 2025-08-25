@@ -26,7 +26,7 @@ export function About() {
   ]
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Sobre Mí</h2>
@@ -82,7 +82,11 @@ export function About() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <img src="/professional-giving-tech-presentation.png" alt="Dando una charla técnica" className="rounded-lg shadow-lg" />
+            <img
+              src="/professional-giving-tech-presentation.png"
+              alt="Dando una charla técnica"
+              className="rounded-lg shadow-lg"
+            />
             <img src="/tech-team-collaboration.png" alt="Trabajando en equipo" className="rounded-lg shadow-lg" />
           </div>
         </div>

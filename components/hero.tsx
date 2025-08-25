@@ -3,7 +3,10 @@ import { MessageCircle, ArrowDown } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/30 to-primary/5">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/30 to-primary/5"
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('/abstract-cloud-computing-network-pattern.png')] opacity-5"></div>
 
