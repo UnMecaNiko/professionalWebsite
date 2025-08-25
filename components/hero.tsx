@@ -1,7 +1,12 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { MessageCircle, ArrowDown } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section
       id="hero"
@@ -20,26 +25,23 @@ export function Hero() {
           />
         </div>
 
+        <div className="text-lg text-muted-foreground mb-2">{t("hero.greeting")}</div>
+
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Nicolas Velasquez Lopez
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
-          Arquitecto de Soluciones en Nube y AI
-        </p>
+        <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">{t("hero.title")}</p>
 
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Especialista en robótica, educación y tecnologías emergentes. Transformando ideas complejas en soluciones
-          innovadoras.
-        </p>
+        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">{t("hero.subtitle")}</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button size="lg" className="bg-primary hover:bg-primary/90">
             <MessageCircle className="mr-2 h-5 w-5" />
-            Contactar por WhatsApp
+            {t("contact.whatsapp")}
           </Button>
           <Button variant="outline" size="lg">
-            Ver Proyectos
+            {t("hero.cta")}
             <ArrowDown className="ml-2 h-5 w-5" />
           </Button>
         </div>
@@ -48,15 +50,15 @@ export function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">5+</div>
-            <div className="text-muted-foreground">Años de Experiencia</div>
+            <div className="text-muted-foreground">Years of Experience</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">50+</div>
-            <div className="text-muted-foreground">Proyectos Completados</div>
+            <div className="text-muted-foreground">Completed Projects</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">100+</div>
-            <div className="text-muted-foreground">Estudiantes Formados</div>
+            <div className="text-muted-foreground">Students Trained</div>
           </div>
         </div>
       </div>

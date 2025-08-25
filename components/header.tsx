@@ -2,10 +2,12 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Globe } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -13,6 +15,10 @@ export function Header() {
       element.scrollIntoView({ behavior: "smooth" })
     }
     setIsMenuOpen(false)
+  }
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "es" : "en")
   }
 
   return (
@@ -35,30 +41,42 @@ export function Header() {
               onClick={() => scrollToSection("about")}
               className="text-foreground/80 hover:text-primary transition-colors font-medium"
             >
-              Sobre Mí
+              {t("nav.about")}
             </button>
             <button
               onClick={() => scrollToSection("projects")}
               className="text-foreground/80 hover:text-primary transition-colors font-medium"
             >
-              Proyectos
+              {t("nav.projects")}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground/80 hover:text-primary transition-colors font-medium"
             >
-              Contacto
+              {t("nav.contact")}
             </button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="text-foreground/80 hover:text-primary transition-colors"
+            >
+              <Globe className="h-4 w-4 mr-2" />
+              {language === "en" ? "ES" : "EN"}
+            </Button>
             <Button
               onClick={() => scrollToSection("contact")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
-              Trabajemos Juntos
+              {t("nav.workTogether")}
             </Button>
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <Button variant="ghost" size="sm" onClick={toggleLanguage} className="text-foreground">
+              <Globe className="h-4 w-4" />
+            </Button>
             <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-foreground">
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -73,26 +91,26 @@ export function Header() {
                 onClick={() => scrollToSection("about")}
                 className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
-                Sobre Mí
+                {t("nav.about")}
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
                 className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
-                Proyectos
+                {t("nav.projects")}
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
-                Contacto
+                {t("nav.contact")}
               </button>
               <div className="px-3 py-2">
                 <Button
                   onClick={() => scrollToSection("contact")}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  Trabajemos Juntos
+                  {t("nav.workTogether")}
                 </Button>
               </div>
             </div>
