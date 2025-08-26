@@ -5,7 +5,7 @@ import { MessageCircle, ArrowDown } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
-  const { t } = useLanguage()
+  const { translations } = useLanguage()
 
   return (
     <section
@@ -25,23 +25,23 @@ export function Hero() {
           />
         </div>
 
-        <div className="text-lg text-muted-foreground mb-2">{t("hero.greeting")}</div>
+        <div className="text-lg text-muted-foreground mb-2">{translations.hero.greeting}</div>
 
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Nicolas Velasquez Lopez
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">{t("hero.title")}</p>
+        <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">{translations.hero.title}</p>
 
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">{t("hero.subtitle")}</p>
+        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">{translations.hero.subtitle}</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button size="lg" className="bg-primary hover:bg-primary/90">
             <MessageCircle className="mr-2 h-5 w-5" />
-            {t("contact.whatsapp")}
+            {translations.contact.whatsapp}
           </Button>
           <Button variant="outline" size="lg">
-            {t("hero.cta")}
+            {translations.hero.cta}
             <ArrowDown className="ml-2 h-5 w-5" />
           </Button>
         </div>

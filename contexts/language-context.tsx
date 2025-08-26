@@ -7,122 +7,187 @@ type Language = "en" | "es"
 interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
-  t: (key: string) => string
+  translations: typeof translations.en
 }
 
 const translations = {
   en: {
     // Header
-    "nav.about": "About",
-    "nav.projects": "Projects",
-    "nav.contact": "Contact",
-    "nav.workTogether": "Let's Work Together",
+    nav: {
+      about: "About",
+      projects: "Projects",
+      contact: "Contact",
+      workTogether: "Let's Work Together",
+    },
 
     // Hero
-    "hero.greeting": "Hi, I'm",
-    "hero.title": "Cloud & AI Solutions Architect",
-    "hero.subtitle":
-      "Transforming businesses through innovative cloud solutions, artificial intelligence, and robotics. Former educator passionate about sharing knowledge and building the future.",
-    "hero.cta": "View My Work",
-    "hero.contact": "Get In Touch",
+    hero: {
+      greeting: "Hi, I'm",
+      title: "Cloud & AI Solutions Architect",
+      subtitle:
+        "Transforming businesses through innovative cloud solutions, artificial intelligence, and robotics. Former educator passionate about sharing knowledge and building the future.",
+      cta: "View My Work",
+      contact: "Get In Touch",
+    },
 
     // About
-    "about.title": "About Me",
-    "about.description":
-      "I'm a passionate Cloud & AI Solutions Architect with extensive experience in designing and implementing scalable cloud infrastructures and artificial intelligence solutions. My background in robotics and education allows me to approach complex problems with creativity and clarity.",
-    "about.expertise": "Areas of Expertise",
-    "about.cloud": "Cloud Architecture",
-    "about.cloudDesc": "AWS, Azure, GCP solutions design and implementation",
-    "about.ai": "Artificial Intelligence",
-    "about.aiDesc": "Machine learning models, AI integration, and automation",
-    "about.robotics": "Robotics",
-    "about.roboticsDesc": "Autonomous systems and IoT device integration",
-    "about.education": "Education & Training",
-    "about.educationDesc": "Technical training and knowledge transfer",
+    about: {
+      title: "About Me",
+      description:
+        "I'm a passionate Cloud & AI Solutions Architect with extensive experience in designing and implementing scalable cloud infrastructures and artificial intelligence solutions. My background in robotics and education allows me to approach complex problems with creativity and clarity.",
+      expertise: "Areas of Expertise",
+      cloud: "Cloud Architecture",
+      cloudDesc: "AWS, Azure, GCP solutions design and implementation",
+      ai: "Artificial Intelligence",
+      aiDesc: "Machine learning models, AI integration, and automation",
+      robotics: "Robotics",
+      roboticsDesc: "Autonomous systems and IoT device integration",
+      education: "Education & Training",
+      educationDesc: "Technical training and knowledge transfer",
+    },
 
     // Projects
-    "projects.title": "Featured Projects",
-    "projects.subtitle": "Explore some of my recent work in cloud architecture, AI solutions, and robotics",
-    "projects.viewDetails": "View Details",
-    "projects.project1.title": "AI-Powered Cloud Analytics Platform",
-    "projects.project1.desc":
-      "Developed a comprehensive analytics platform using AWS services and machine learning algorithms to process and analyze large datasets in real-time.",
-    "projects.project2.title": "Autonomous Robotics System",
-    "projects.project2.desc":
-      "Designed and implemented an autonomous navigation system for industrial robots using computer vision and deep learning techniques.",
-    "projects.project3.title": "Multi-Cloud Infrastructure Migration",
-    "projects.project3.desc":
-      "Led the migration of enterprise applications from on-premises to a hybrid multi-cloud architecture, improving scalability and reducing costs by 40%.",
+    projects: {
+      title: "Featured Projects",
+      subtitle: "Explore some of my recent work in cloud architecture, AI solutions, and robotics",
+      viewDetails: "View Details",
+      project1: {
+        title: "AI-Powered Cloud Analytics Platform",
+        desc: "Developed a comprehensive analytics platform using AWS services and machine learning algorithms to process and analyze large datasets in real-time.",
+      },
+      project2: {
+        title: "Autonomous Robotics System",
+        desc: "Designed and implemented an autonomous navigation system for industrial robots using computer vision and deep learning techniques.",
+      },
+      project3: {
+        title: "Multi-Cloud Infrastructure Migration",
+        desc: "Led the migration of enterprise applications from on-premises to a hybrid multi-cloud architecture, improving scalability and reducing costs by 40%.",
+      },
+    },
 
     // Contact
-    "contact.title": "Let's Build Something Amazing Together",
-    "contact.subtitle":
-      "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss your project.",
-    "contact.whatsapp": "Contact via WhatsApp",
-    "contact.whyWork": "Why Work With Me?",
-    "contact.experience": "Proven Experience",
-    "contact.experienceDesc": "Years of hands-on experience in cloud architecture and AI implementation",
-    "contact.education": "Educational Background",
-    "contact.educationDesc": "Former educator with a passion for clear communication and knowledge transfer",
-    "contact.innovation": "Innovation Focus",
-    "contact.innovationDesc": "Always exploring the latest technologies to deliver cutting-edge solutions",
+    contact: {
+      title: "Let's Build Something Amazing Together",
+      subtitle:
+        "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss your project.",
+      whatsapp: "Contact via WhatsApp",
+      whyWork: "Why Work With Me?",
+      experience: "Proven Experience",
+      experienceDesc: "Years of hands-on experience in cloud architecture and AI implementation",
+      education: "Educational Background",
+      educationDesc: "Former educator with a passion for clear communication and knowledge transfer",
+      innovation: "Innovation Focus",
+      innovationDesc: "Always exploring the latest technologies to deliver cutting-edge solutions",
+    },
+
+    footer: {
+      description:
+        "Cloud & AI Solutions Architect, specialized in robotics and education. Transforming ideas into innovative technological solutions.",
+      services: {
+        title: "Services",
+        list: [
+          "Cloud Architecture",
+          "AI/ML Development",
+          "Robotics Systems",
+          "Technical Consulting",
+          "Training & Education",
+        ],
+      },
+      contact: {
+        title: "Contact",
+      },
+      copyright: "© 2024 Nicolas Velasquez Lopez. All rights reserved.",
+      tagline: "Solutions Architect Specialist • Cloud & AI • Robotics • Education",
+    },
   },
   es: {
     // Header
-    "nav.about": "Sobre Mí",
-    "nav.projects": "Proyectos",
-    "nav.contact": "Contacto",
-    "nav.workTogether": "Trabajemos Juntos",
+    nav: {
+      about: "Sobre Mí",
+      projects: "Proyectos",
+      contact: "Contacto",
+      workTogether: "Trabajemos Juntos",
+    },
 
     // Hero
-    "hero.greeting": "Hola, soy",
-    "hero.title": "Arquitecto de Soluciones en Nube y AI",
-    "hero.subtitle":
-      "Transformando empresas a través de soluciones innovadoras en la nube, inteligencia artificial y robótica. Ex-educador apasionado por compartir conocimiento y construir el futuro.",
-    "hero.cta": "Ver Mi Trabajo",
-    "hero.contact": "Contactar",
+    hero: {
+      greeting: "Hola, soy",
+      title: "Arquitecto de Soluciones en Nube y AI",
+      subtitle:
+        "Transformando empresas a través de soluciones innovadoras en la nube, inteligencia artificial y robótica. Ex-educador apasionado por compartir conocimiento y construir el futuro.",
+      cta: "Ver Mi Trabajo",
+      contact: "Contactar",
+    },
 
     // About
-    "about.title": "Sobre Mí",
-    "about.description":
-      "Soy un Arquitecto de Soluciones en Nube y AI apasionado con amplia experiencia en el diseño e implementación de infraestructuras escalables en la nube y soluciones de inteligencia artificial. Mi experiencia en robótica y educación me permite abordar problemas complejos con creatividad y claridad.",
-    "about.expertise": "Áreas de Especialización",
-    "about.cloud": "Arquitectura en la Nube",
-    "about.cloudDesc": "Diseño e implementación de soluciones AWS, Azure, GCP",
-    "about.ai": "Inteligencia Artificial",
-    "about.aiDesc": "Modelos de machine learning, integración de AI y automatización",
-    "about.robotics": "Robótica",
-    "about.roboticsDesc": "Sistemas autónomos e integración de dispositivos IoT",
-    "about.education": "Educación y Capacitación",
-    "about.educationDesc": "Formación técnica y transferencia de conocimiento",
+    about: {
+      title: "Sobre Mí",
+      description:
+        "Soy un Arquitecto de Soluciones en Nube y AI apasionado con amplia experiencia en el diseño e implementación de infraestructuras escalables en la nube y soluciones de inteligencia artificial. Mi experiencia en robótica y educación me permite abordar problemas complejos con creatividad y claridad.",
+      expertise: "Áreas de Especialización",
+      cloud: "Arquitectura en la Nube",
+      cloudDesc: "Diseño e implementación de soluciones AWS, Azure, GCP",
+      ai: "Inteligencia Artificial",
+      aiDesc: "Modelos de machine learning, integración de AI y automatización",
+      robotics: "Robótica",
+      roboticsDesc: "Sistemas autónomos e integración de dispositivos IoT",
+      education: "Educación y Capacitación",
+      educationDesc: "Formación técnica y transferencia de conocimiento",
+    },
 
     // Projects
-    "projects.title": "Proyectos Destacados",
-    "projects.subtitle":
-      "Explora algunos de mis trabajos recientes en arquitectura en la nube, soluciones de AI y robótica",
-    "projects.viewDetails": "Ver Detalles",
-    "projects.project1.title": "Plataforma de Análisis en la Nube con AI",
-    "projects.project1.desc":
-      "Desarrollé una plataforma integral de análisis utilizando servicios de AWS y algoritmos de machine learning para procesar y analizar grandes conjuntos de datos en tiempo real.",
-    "projects.project2.title": "Sistema de Robótica Autónoma",
-    "projects.project2.desc":
-      "Diseñé e implementé un sistema de navegación autónoma para robots industriales utilizando visión por computadora y técnicas de deep learning.",
-    "projects.project3.title": "Migración de Infraestructura Multi-Nube",
-    "projects.project3.desc":
-      "Lideré la migración de aplicaciones empresariales desde on-premises a una arquitectura híbrida multi-nube, mejorando la escalabilidad y reduciendo costos en un 40%.",
+    projects: {
+      title: "Proyectos Destacados",
+      subtitle: "Explora algunos de mis trabajos recientes en arquitectura en la nube, soluciones de AI y robótica",
+      viewDetails: "Ver Detalles",
+      project1: {
+        title: "Plataforma de Análisis en la Nube con AI",
+        desc: "Desarrollé una plataforma integral de análisis utilizando servicios de AWS y algoritmos de machine learning para procesar y analizar grandes conjuntos de datos en tiempo real.",
+      },
+      project2: {
+        title: "Sistema de Robótica Autónoma",
+        desc: "Diseñé e implementé un sistema de navegación autónoma para robots industriales utilizando visión por computadora y técnicas de deep learning.",
+      },
+      project3: {
+        title: "Migración de Infraestructura Multi-Nube",
+        desc: "Lideré la migración de aplicaciones empresariales desde on-premises a una arquitectura híbrida multi-nube, mejorando la escalabilidad y reduciendo costos en un 40%.",
+      },
+    },
 
     // Contact
-    "contact.title": "Construyamos Algo Increíble Juntos",
-    "contact.subtitle":
-      "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y AI? Hablemos de tu proyecto.",
-    "contact.whatsapp": "Contactar por WhatsApp",
-    "contact.whyWork": "¿Por Qué Trabajar Conmigo?",
-    "contact.experience": "Experiencia Comprobada",
-    "contact.experienceDesc": "Años de experiencia práctica en arquitectura en la nube e implementación de AI",
-    "contact.education": "Formación Educativa",
-    "contact.educationDesc": "Ex-educador con pasión por la comunicación clara y transferencia de conocimiento",
-    "contact.innovation": "Enfoque en Innovación",
-    "contact.innovationDesc": "Siempre explorando las últimas tecnologías para entregar soluciones de vanguardia",
+    contact: {
+      title: "Construyamos Algo Increíble Juntos",
+      subtitle:
+        "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y AI? Hablemos de tu proyecto.",
+      whatsapp: "Contactar por WhatsApp",
+      whyWork: "¿Por Qué Trabajar Conmigo?",
+      experience: "Experiencia Comprobada",
+      experienceDesc: "Años de experiencia práctica en arquitectura en la nube e implementación de AI",
+      education: "Formación Educativa",
+      educationDesc: "Ex-educador con pasión por la comunicación clara y transferencia de conocimiento",
+      innovation: "Enfoque en Innovación",
+      innovationDesc: "Siempre explorando las últimas tecnologías para entregar soluciones de vanguardia",
+    },
+
+    footer: {
+      description:
+        "Arquitecto de Soluciones en Nube y AI, especializado en robótica y educación. Transformando ideas en soluciones tecnológicas innovadoras.",
+      services: {
+        title: "Servicios",
+        list: [
+          "Arquitectura en Nube",
+          "Desarrollo de IA/ML",
+          "Sistemas Robóticos",
+          "Consultoría Técnica",
+          "Formación y Capacitación",
+        ],
+      },
+      contact: {
+        title: "Contacto",
+      },
+      copyright: "© 2024 Nicolas Velasquez Lopez. Todos los derechos reservados.",
+      tagline: "Especialista en Arquitectura de Soluciones • Cloud & AI • Robótica • Educación",
+    },
   },
 }
 
@@ -131,11 +196,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
 
-  const t = (key: string): string => {
-    return translations[language][key as keyof (typeof translations)[typeof language]] || key
-  }
-
-  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, translations: translations[language] }}>
+      {children}
+    </LanguageContext.Provider>
+  )
 }
 
 export function useLanguage() {

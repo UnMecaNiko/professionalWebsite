@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/language-context"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { language, setLanguage, t } = useLanguage()
+  const { language, setLanguage, translations } = useLanguage()
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -41,19 +41,19 @@ export function Header() {
               onClick={() => scrollToSection("about")}
               className="text-foreground/80 hover:text-primary transition-colors font-medium"
             >
-              {t("nav.about")}
+              {translations.nav.about}
             </button>
             <button
               onClick={() => scrollToSection("projects")}
               className="text-foreground/80 hover:text-primary transition-colors font-medium"
             >
-              {t("nav.projects")}
+              {translations.nav.projects}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground/80 hover:text-primary transition-colors font-medium"
             >
-              {t("nav.contact")}
+              {translations.nav.contact}
             </button>
             <Button
               variant="ghost"
@@ -68,7 +68,7 @@ export function Header() {
               onClick={() => scrollToSection("contact")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
-              {t("nav.workTogether")}
+              {translations.nav.workTogether}
             </Button>
           </nav>
 
@@ -91,26 +91,26 @@ export function Header() {
                 onClick={() => scrollToSection("about")}
                 className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
-                {t("nav.about")}
+                {translations.nav.about}
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
                 className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
-                {t("nav.projects")}
+                {translations.nav.projects}
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
-                {t("nav.contact")}
+                {translations.nav.contact}
               </button>
               <div className="px-3 py-2">
                 <Button
                   onClick={() => scrollToSection("contact")}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  {t("nav.workTogether")}
+                  {translations.nav.workTogether}
                 </Button>
               </div>
             </div>

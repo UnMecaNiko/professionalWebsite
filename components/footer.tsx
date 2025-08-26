@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { Linkedin, Github, Youtube, Mail, MessageCircle } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Footer() {
+  const { language, translations } = useLanguage()
+
   const socialLinks = [
     {
       name: "LinkedIn",
@@ -38,10 +41,7 @@ export function Footer() {
           {/* About */}
           <div>
             <h3 className="text-xl font-bold mb-4">Nicolas Velasquez Lopez</h3>
-            <p className="opacity-90 mb-4">
-              Arquitecto de Soluciones en Nube y AI, especializado en robótica y educación. Transformando ideas en
-              soluciones tecnológicas innovadoras.
-            </p>
+            <p className="opacity-90 mb-4">{translations.footer.description}</p>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
                 <Button
@@ -59,19 +59,17 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Servicios</h3>
+            <h3 className="text-xl font-bold mb-4">{translations.footer.services.title}</h3>
             <ul className="space-y-2 opacity-90">
-              <li>Arquitectura en Nube</li>
-              <li>Desarrollo de IA/ML</li>
-              <li>Sistemas Robóticos</li>
-              <li>Consultoría Técnica</li>
-              <li>Formación y Capacitación</li>
+              {translations.footer.services.list.map((service, index) => (
+                <li key={index}>{service}</li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contacto</h3>
+            <h3 className="text-xl font-bold mb-4">{translations.footer.contact.title}</h3>
             <div className="space-y-3">
               <Button
                 variant="secondary"
@@ -94,10 +92,8 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center">
-          <p className="opacity-75">© 2024 Nicolas Velasquez Lopez. Todos los derechos reservados.</p>
-          <p className="opacity-60 text-sm mt-2">
-            Especialista en Arquitectura de Soluciones • Cloud & AI • Robótica • Educación
-          </p>
+          <p className="opacity-75">{translations.footer.copyright}</p>
+          <p className="opacity-60 text-sm mt-2">{translations.footer.tagline}</p>
         </div>
       </div>
     </footer>

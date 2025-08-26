@@ -1,14 +1,18 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Projects() {
+  const { translations } = useLanguage()
+
   const projects = [
     {
-      title: "Sistema de Automatización Industrial",
-      description:
-        "Plataforma IoT para monitoreo y control de procesos industriales usando AWS IoT Core y machine learning para predicción de mantenimiento.",
+      title: translations.projects.project1.title,
+      description: translations.projects.project1.desc,
       image: "/industrial-automation-dashboard.png",
       technologies: ["AWS IoT", "Python", "TensorFlow", "React", "Node.js"],
       category: "Cloud & AI",
@@ -16,32 +20,20 @@ export function Projects() {
       github: "#",
     },
     {
-      title: "Robot Educativo Inteligente",
-      description:
-        "Desarrollo de robot educativo con capacidades de IA para enseñanza interactiva de programación y robótica en instituciones educativas.",
+      title: translations.projects.project2.title,
+      description: translations.projects.project2.desc,
       image: "/educational-robot-with-students.png",
       technologies: ["ROS", "OpenCV", "Python", "Arduino", "Machine Learning"],
-      category: "Robótica & Educación",
+      category: "Robotics & Education",
       link: "#",
       github: "#",
     },
     {
-      title: "Plataforma de Análisis de Datos",
-      description:
-        "Sistema de big data para análisis en tiempo real de métricas empresariales con dashboards interactivos y alertas inteligentes.",
+      title: translations.projects.project3.title,
+      description: translations.projects.project3.desc,
       image: "/data-analytics-dashboard.png",
       technologies: ["Azure", "Power BI", "Apache Spark", "Docker", "Kubernetes"],
       category: "Cloud & Analytics",
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Chatbot Educativo con IA",
-      description:
-        "Asistente virtual inteligente para instituciones educativas que responde preguntas académicas y guía a estudiantes en su proceso de aprendizaje.",
-      image: "/ai-chatbot-education-interface.png",
-      technologies: ["OpenAI GPT", "Node.js", "MongoDB", "React", "WebSocket"],
-      category: "AI & Educación",
       link: "#",
       github: "#",
     },
@@ -51,11 +43,8 @@ export function Projects() {
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Proyectos Destacados</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Una selección de proyectos que demuestran mi experiencia en arquitectura de soluciones, inteligencia
-            artificial y robótica aplicada a diferentes industrias.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{translations.projects.title}</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{translations.projects.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -90,11 +79,11 @@ export function Projects() {
                 <div className="flex gap-3">
                   <Button size="sm" className="flex-1">
                     <ExternalLink className="mr-2 h-4 w-4" />
-                    Ver Proyecto
+                    {translations.projects.viewDetails}
                   </Button>
                   <Button size="sm" variant="outline">
                     <Github className="mr-2 h-4 w-4" />
-                    Código
+                    Code
                   </Button>
                 </div>
               </CardContent>
@@ -104,7 +93,7 @@ export function Projects() {
 
         <div className="text-center mt-12">
           <Button variant="outline" size="lg">
-            Ver Todos los Proyectos
+            View All Projects
           </Button>
         </div>
       </div>
