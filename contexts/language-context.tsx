@@ -23,9 +23,9 @@ const translations = {
     // Hero
     hero: {
       greeting: "Hi, I'm",
-      title: "Cloud & AI Solutions Architect",
+      title: "Cloud Solutions Architect & AI Specialist",
       subtitle:
-        "Transforming businesses through innovative cloud solutions, artificial intelligence, and robotics. Former educator passionate about sharing knowledge and building the future.",
+        "Mechatronics Engineer at Huawei Cloud, transforming businesses through innovative cloud architectures and AI solutions. Passionate educator bridging technology and learning.",
       cta: "View My Work",
       contact: "Get In Touch",
     },
@@ -34,34 +34,34 @@ const translations = {
     about: {
       title: "About Me",
       description:
-        "I'm a passionate Cloud & AI Solutions Architect with extensive experience in designing and implementing scalable cloud infrastructures and artificial intelligence solutions. My background in robotics and education allows me to approach complex problems with creativity and clarity.",
+        "I'm a Mechatronics Engineer from Colombia working as a Named Accounts Cloud Solutions Architect at Huawei Cloud. I combine deep technical expertise in cloud computing, AI, and robotics with strong communication skills and business acumen. My philosophy centers on continuous learning, respect for others, and the belief that collaboration builds greater things.",
       expertise: "Areas of Expertise",
       cloud: "Cloud Architecture",
-      cloudDesc: "AWS, Azure, GCP solutions design and implementation",
+      cloudDesc: "Huawei Cloud solutions, Terraform, security and cost optimization",
       ai: "Artificial Intelligence",
-      aiDesc: "Machine learning models, AI integration, and automation",
-      robotics: "Robotics",
-      roboticsDesc: "Autonomous systems and IoT device integration",
+      aiDesc: "AI leadership, TensorFlow, Ollama, LangChain, and business strategy",
+      robotics: "Robotics & Automation",
+      roboticsDesc: "ROS, Gazebo, MATLAB, Simulink, and autonomous systems",
       education: "Education & Training",
-      educationDesc: "Technical training and knowledge transfer",
+      educationDesc: "Co-founder of Lápiz Labs, technical training and mentorship",
     },
 
     // Projects
     projects: {
       title: "Featured Projects",
-      subtitle: "Explore some of my recent work in cloud architecture, AI solutions, and robotics",
+      subtitle: "Explore my work in cloud migration, robotics education, and innovative engineering solutions",
       viewDetails: "View Details",
       project1: {
-        title: "AI-Powered Cloud Analytics Platform",
-        desc: "Developed a comprehensive analytics platform using AWS services and machine learning algorithms to process and analyze large datasets in real-time.",
+        title: "Digital Lottery Cloud Migration",
+        desc: "Led the migration of one of Colombia's largest digital lottery companies to Huawei Cloud, more than doubling their monthly recurring revenue through strategic cloud architecture.",
       },
       project2: {
-        title: "Autonomous Robotics System",
-        desc: "Designed and implemented an autonomous navigation system for industrial robots using computer vision and deep learning techniques.",
+        title: "CNC Laser Machine Build",
+        desc: "Built a custom CNC laser machine with 80W laser head and 40×40 cm work area, capable of cutting 5mm wood and engraving leather, steel, and plywood.",
       },
       project3: {
-        title: "Multi-Cloud Infrastructure Migration",
-        desc: "Led the migration of enterprise applications from on-premises to a hybrid multi-cloud architecture, improving scalability and reducing costs by 40%.",
+        title: "Space Call Project - International Education",
+        desc: "Scientific Instructor for international program supporting students from 6 countries in building electronic boards launched into space, connecting cultures through technology.",
       },
     },
 
@@ -69,35 +69,35 @@ const translations = {
     contact: {
       title: "Let's Build Something Amazing Together",
       subtitle:
-        "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss your project.",
+        "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss how we can optimize your processes and drive growth.",
       whatsapp: "Contact via WhatsApp",
       whyWork: "Why Work With Me?",
-      experience: "Proven Experience",
-      experienceDesc: "Years of hands-on experience in cloud architecture and AI implementation",
-      education: "Educational Background",
-      educationDesc: "Former educator with a passion for clear communication and knowledge transfer",
-      innovation: "Innovation Focus",
-      innovationDesc: "Always exploring the latest technologies to deliver cutting-edge solutions",
+      experience: "Proven Track Record",
+      experienceDesc: "First place in Huawei's Solutions Architect Competition and recognized business impact",
+      education: "Teaching & Mentoring",
+      educationDesc: "Co-founder of Lápiz Labs, trained 50+ engineers, and passionate about knowledge sharing",
+      innovation: "Technical Excellence",
+      innovationDesc: "HCIP Cloud Service Solutions Architect with expertise in AI, robotics, and automation",
     },
 
     footer: {
       description:
-        "Cloud & AI Solutions Architect, specialized in robotics and education. Transforming ideas into innovative technological solutions.",
+        "Mechatronics Engineer and Cloud Solutions Architect at Huawei Cloud. Transforming businesses through innovative cloud architectures, AI solutions, and robotics education.",
       services: {
         title: "Services",
         list: [
-          "Cloud Architecture",
-          "AI/ML Development",
+          "Cloud Architecture Design",
+          "AI Strategy & Implementation",
           "Robotics Systems",
-          "Technical Consulting",
-          "Training & Education",
+          "Technical Training",
+          "Business Consulting",
         ],
       },
       contact: {
         title: "Contact",
       },
       copyright: "© 2024 Nicolas Velasquez Lopez. All rights reserved.",
-      tagline: "Solutions Architect Specialist • Cloud & AI • Robotics • Education",
+      tagline: "Huawei Cloud Solutions Architect • AI Specialist • Robotics Educator • Colombia",
     },
   },
   es: {
@@ -112,9 +112,9 @@ const translations = {
     // Hero
     hero: {
       greeting: "Hola, soy",
-      title: "Arquitecto de Soluciones en Nube y AI",
+      title: "Arquitecto de Soluciones en Nube y Especialista en IA",
       subtitle:
-        "Transformando empresas a través de soluciones innovadoras en la nube, inteligencia artificial y robótica. Ex-educador apasionado por compartir conocimiento y construir el futuro.",
+        "Ingeniero Mecatrónico en Huawei Cloud, transformando empresas a través de arquitecturas innovadoras en la nube y soluciones de IA. Educador apasionado que conecta tecnología y aprendizaje.",
       cta: "Ver Mi Trabajo",
       contact: "Contactar",
     },
@@ -123,34 +123,35 @@ const translations = {
     about: {
       title: "Sobre Mí",
       description:
-        "Soy un Arquitecto de Soluciones en Nube y AI apasionado con amplia experiencia en el diseño e implementación de infraestructuras escalables en la nube y soluciones de inteligencia artificial. Mi experiencia en robótica y educación me permite abordar problemas complejos con creatividad y claridad.",
+        "Soy Ingeniero Mecatrónico de Colombia trabajando como Arquitecto de Soluciones en Nube para Cuentas Nombradas en Huawei Cloud. Combino experiencia técnica profunda en computación en la nube, IA y robótica con habilidades de comunicación sólidas y visión de negocio. Mi filosofía se centra en el aprendizaje continuo, el respeto por otros y la creencia de que la colaboración construye cosas más grandes.",
       expertise: "Áreas de Especialización",
       cloud: "Arquitectura en la Nube",
-      cloudDesc: "Diseño e implementación de soluciones AWS, Azure, GCP",
+      cloudDesc: "Soluciones Huawei Cloud, Terraform, seguridad y optimización de costos",
       ai: "Inteligencia Artificial",
-      aiDesc: "Modelos de machine learning, integración de AI y automatización",
-      robotics: "Robótica",
-      roboticsDesc: "Sistemas autónomos e integración de dispositivos IoT",
+      aiDesc: "Liderazgo en IA, TensorFlow, Ollama, LangChain y estrategia de negocio",
+      robotics: "Robótica y Automatización",
+      roboticsDesc: "ROS, Gazebo, MATLAB, Simulink y sistemas autónomos",
       education: "Educación y Capacitación",
-      educationDesc: "Formación técnica y transferencia de conocimiento",
+      educationDesc: "Co-fundador de Lápiz Labs, formación técnica y mentoría",
     },
 
     // Projects
     projects: {
       title: "Proyectos Destacados",
-      subtitle: "Explora algunos de mis trabajos recientes en arquitectura en la nube, soluciones de AI y robótica",
+      subtitle:
+        "Explora mi trabajo en migración a la nube, educación en robótica y soluciones de ingeniería innovadoras",
       viewDetails: "Ver Detalles",
       project1: {
-        title: "Plataforma de Análisis en la Nube con AI",
-        desc: "Desarrollé una plataforma integral de análisis utilizando servicios de AWS y algoritmos de machine learning para procesar y analizar grandes conjuntos de datos en tiempo real.",
+        title: "Migración de Lotería Digital a la Nube",
+        desc: "Lideré la migración de una de las compañías de lotería digital más grandes de Colombia a Huawei Cloud, más que duplicando sus ingresos recurrentes mensuales a través de arquitectura estratégica en la nube.",
       },
       project2: {
-        title: "Sistema de Robótica Autónoma",
-        desc: "Diseñé e implementé un sistema de navegación autónoma para robots industriales utilizando visión por computadora y técnicas de deep learning.",
+        title: "Construcción de Máquina Láser CNC",
+        desc: "Construí una máquina láser CNC personalizada con cabezal láser de 80W y área de trabajo de 40×40 cm, capaz de cortar madera de 5mm y grabar cuero, acero y contrachapado.",
       },
       project3: {
-        title: "Migración de Infraestructura Multi-Nube",
-        desc: "Lideré la migración de aplicaciones empresariales desde on-premises a una arquitectura híbrida multi-nube, mejorando la escalabilidad y reduciendo costos en un 40%.",
+        title: "Proyecto Space Call - Educación Internacional",
+        desc: "Instructor Científico para programa internacional apoyando estudiantes de 6 países en la construcción de placas electrónicas lanzadas al espacio, conectando culturas a través de la tecnología.",
       },
     },
 
@@ -158,35 +159,37 @@ const translations = {
     contact: {
       title: "Construyamos Algo Increíble Juntos",
       subtitle:
-        "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y AI? Hablemos de tu proyecto.",
+        "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y IA? Hablemos sobre cómo podemos optimizar tus procesos e impulsar el crecimiento.",
       whatsapp: "Contactar por WhatsApp",
       whyWork: "¿Por Qué Trabajar Conmigo?",
-      experience: "Experiencia Comprobada",
-      experienceDesc: "Años de experiencia práctica en arquitectura en la nube e implementación de AI",
-      education: "Formación Educativa",
-      educationDesc: "Ex-educador con pasión por la comunicación clara y transferencia de conocimiento",
-      innovation: "Enfoque en Innovación",
-      innovationDesc: "Siempre explorando las últimas tecnologías para entregar soluciones de vanguardia",
+      experience: "Trayectoria Comprobada",
+      experienceDesc:
+        "Primer lugar en la Competencia de Arquitectos de Soluciones de Huawei e impacto empresarial reconocido",
+      education: "Enseñanza y Mentoría",
+      educationDesc:
+        "Co-fundador de Lápiz Labs, entrenó a más de 50 ingenieros y apasionado por compartir conocimiento",
+      innovation: "Excelencia Técnica",
+      innovationDesc: "HCIP Cloud Service Solutions Architect con experiencia en IA, robótica y automatización",
     },
 
     footer: {
       description:
-        "Arquitecto de Soluciones en Nube y AI, especializado en robótica y educación. Transformando ideas en soluciones tecnológicas innovadoras.",
+        "Ingeniero Mecatrónico y Arquitecto de Soluciones en Nube en Huawei Cloud. Transformando empresas a través de arquitecturas innovadoras en la nube, soluciones de IA y educación en robótica.",
       services: {
         title: "Servicios",
         list: [
-          "Arquitectura en Nube",
-          "Desarrollo de IA/ML",
+          "Diseño de Arquitectura en Nube",
+          "Estrategia e Implementación de IA",
           "Sistemas Robóticos",
-          "Consultoría Técnica",
-          "Formación y Capacitación",
+          "Formación Técnica",
+          "Consultoría Empresarial",
         ],
       },
       contact: {
         title: "Contacto",
       },
       copyright: "© 2024 Nicolas Velasquez Lopez. Todos los derechos reservados.",
-      tagline: "Especialista en Arquitectura de Soluciones • Cloud & AI • Robótica • Educación",
+      tagline: "Arquitecto de Soluciones Huawei Cloud • Especialista en IA • Educador en Robótica • Colombia",
     },
   },
 }
