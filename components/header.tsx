@@ -31,7 +31,7 @@ export function Header() {
               onClick={() => scrollToSection("hero")}
               className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
             >
-              Nicolás Velásquez
+              {"Nicolas Velasquez Lopez"}       
             </button>
           </div>
 
