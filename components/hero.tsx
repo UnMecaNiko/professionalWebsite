@@ -49,8 +49,8 @@ export function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">5+</div>
-            <div className="text-muted-foreground">50+</div>
+            <div className="text-3xl font-bold text-primary mb-2">{"3"}</div>
+            <div className="text-muted-foreground">{"5+"}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">15+</div>
