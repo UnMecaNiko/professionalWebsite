@@ -53,7 +53,7 @@ export function Hero() {
             <div className="text-muted-foreground">50+</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">20+</div>
+            <div className="text-3xl font-bold text-primary mb-2">15+</div>
             <div className="text-muted-foreground">Completed Projects</div>
           </div>
           <div className="text-center">
