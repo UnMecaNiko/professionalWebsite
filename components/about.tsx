@@ -35,7 +35,7 @@ export function About() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{translations.about.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{translations.about.description}</p>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-justify">{translations.about.description}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -78,14 +78,7 @@ export function About() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <img src="/nicolas-profile.jpg" alt="Nicolas Velasquez Lopez" className="rounded-lg shadow-lg" />
-            <img
-              src="/speaking-huawei-podium.jpg"
-              alt="Speaking at professional events"
-              className="rounded-lg shadow-lg"
-            />
-          </div>
+          
         </div>
       </div>
     </section>
