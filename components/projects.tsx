@@ -16,8 +16,8 @@ export function Projects() {
       image: "/domichat-whatsapp-interface.png",
       technologies: ["WhatsApp API", "evolution API", "n8n", "React", "Cloud & AI"],
       category: "Cloud & AI",
-      link: "#",
-      github: "#",
+      link: "https://www.domichat.com.co/",
+      github: "https://github.com/FelipeUribe81/domichat-landing-front",
     },
     {
       title: translations.projects.project2.title,
@@ -25,8 +25,8 @@ export function Projects() {
       image: "/cnc-laser-hummingbird-engraving.jpg",
       technologies: ["ROS", "OpenCV", "Python", "Arduino", "Machine Learning"],
       category: "Robotics & Education",
-      link: "#",
-      github: "#",
+      link: "https://www.youtube.com/shorts/PLy-GjmDeoE",
+      github: "https://www.youtube.com/shorts/PLy-GjmDeoE",
     },
     {
       title: translations.projects.project3.title,
@@ -40,8 +40,8 @@ export function Projects() {
         "STEM Education",
       ],
       category: "Robotics & Education",
-      link: "#",
-      github: "#",
+      link: "https://www.linkedin.com/posts/unmecaniko_big-news-rascube-1-is-go-for-launch-activity-7340941239036391424-nZjB?utm_source=share&utm_medium=member_desktop&rcm=ACoAADB8cWkB076ZBS6LM-SmQs3e5qlvd8zIj7s",
+      github: "https://www.linkedin.com/posts/unmecaniko_astcol-spacecallproject-colombia-activity-7222673756224167936-6GEb?utm_source=share&utm_medium=member_desktop&rcm=ACoAADB8cWkB076ZBS6LM-SmQs3e5qlvd8zIj7s",
     },
   ]
 
@@ -60,9 +60,8 @@ export function Projects() {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className={`w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 ${
-                    index === 1 ? "object-bottom" : "object-center"
-                  }`}
+                  className={`w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 ${index === 1 ? "object-bottom" : "object-center"
+                    }`}
                 />
                 <div className="absolute top-4 left-4">
                   <Badge variant="secondary">{project.category}</Badge>
