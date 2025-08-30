@@ -25,7 +25,7 @@ const translations = {
       greeting: "Hi, I'm",
       title: "Cloud Solutions Architect & AI Specialist",
       subtitle:
-        "Mechatronics Engineer at Huawei Cloud, transforming businesses through innovative cloud architectures and AI solutions. Passionate educator bridging technology and learning.",
+        "Mechatronics Engineer, transforming businesses through innovative cloud architectures and AI solutions. Passionate educator bridging technology and learning.",
       cta: "View My Work",
       contact: "Get In Touch",
     },
@@ -34,10 +34,10 @@ const translations = {
     about: {
       title: "About Me",
       description:
-        "I'm a Mechatronics Engineer from Colombia working as a Named Accounts Cloud Solutions Architect at Huawei Cloud. I combine deep technical expertise in cloud computing, AI, and robotics with strong communication skills and business acumen. My philosophy centers on continuous learning, respect for others, and the belief that collaboration builds greater things.",
+        "I'm mechatronics engineer. I combine deep technical expertise in cloud computing, AI, and robotics with strong communication skills and business acumen. My philosophy centers on continuous learning, respect for others, and the belief that collaboration builds greater things.",
       expertise: "Areas of Expertise",
       cloud: "Cloud Architecture",
-      cloudDesc: "Huawei Cloud solutions, Terraform, security and cost optimization",
+      cloudDesc: "Cloud solutions, Terraform, security and cost optimization",
       ai: "Artificial Intelligence",
       aiDesc: "AI leadership, TensorFlow, Ollama, LangChain, and business strategy",
       robotics: "Robotics & Automation",
@@ -94,7 +94,7 @@ const translations = {
 
     footer: {
       description:
-        "Mechatronics Engineer and Cloud Solutions Architect at Huawei Cloud. Transforming businesses through innovative cloud architectures, AI solutions, and robotics education.",
+        "Mechatronics Engineer and Cloud Solutions Architect. Transforming businesses through innovative cloud architectures, AI solutions, and robotics education.",
       services: {
         title: "Services",
         list: [
@@ -108,8 +108,8 @@ const translations = {
       contact: {
         title: "Contact",
       },
-      copyright: "© 2024 Nicolas Velasquez Lopez. All rights reserved.",
-      tagline: "Huawei Cloud Solutions Architect • AI Specialist • Robotics Educator • Colombia",
+      copyright: "© 2025 Nicolas Velasquez Lopez. All rights reserved.",
+      tagline: "Cloud Solutions Architect • AI Specialist • Robotics Educator • Colombia",
     },
   },
   es: {
@@ -124,9 +124,9 @@ const translations = {
     // Hero
     hero: {
       greeting: "Hola, soy",
-      title: "Arquitecto de Soluciones en Nube y Especialista en IA",
+      title: "Arquitecto de Soluciones en Nube e IA",
       subtitle:
-        "Ingeniero Mecatrónico en Huawei Cloud, transformando empresas a través de arquitecturas innovadoras en la nube y soluciones de IA. Educador apasionado que conecta tecnología y aprendizaje.",
+        "Transformando empresas a través de arquitecturas en la nube y soluciones de IA. Educador apasionado que conecta tecnología y aprendizaje.",
       cta: "Ver Mi Trabajo",
       contact: "Contactar",
     },
@@ -135,10 +135,10 @@ const translations = {
     about: {
       title: "Sobre Mí",
       description:
-        "Soy Ingeniero Mecatrónico de Colombia trabajando como Arquitecto de Soluciones en Nube para Cuentas Nombradas en Huawei Cloud. Combino experiencia técnica profunda en computación en la nube, IA y robótica con habilidades de comunicación sólidas y visión de negocio. Mi filosofía se centra en el aprendizaje continuo, el respeto por otros y la creencia de que la colaboración construye cosas más grandes.",
+        "Soy ingeniero mecatrónico. Combino experiencia técnica profunda en computación en la nube, IA y robótica con habilidades de comunicación sólidas y visión de negocio. Mi filosofía se centra en el aprendizaje continuo, el respeto por otros y la creencia de que la colaboración construye cosas más grandes.",
       expertise: "Áreas de Especialización",
       cloud: "Arquitectura en la Nube",
-      cloudDesc: "Soluciones Huawei Cloud, Terraform, seguridad y optimización de costos",
+      cloudDesc: "Soluciones Cloud, Terraform, seguridad y optimización de costos",
       ai: "Inteligencia Artificial",
       aiDesc: "Liderazgo en IA, TensorFlow, Ollama, LangChain y estrategia de negocio",
       robotics: "Robótica y Automatización",
@@ -198,7 +198,7 @@ const translations = {
 
     footer: {
       description:
-        "Ingeniero Mecatrónico y Arquitecto de Soluciones en Nube en Huawei Cloud. Transformando empresas a través de arquitecturas innovadoras en la nube, soluciones de IA y educación en robótica.",
+        "Ingeniero Mecatrónico y Arquitecto de Soluciones en Nube. Transformando empresas a través de arquitecturas innovadoras en la nube, soluciones de IA y educación en robótica.",
       services: {
         title: "Servicios",
         list: [
@@ -213,7 +213,7 @@ const translations = {
         title: "Contacto",
       },
       copyright: "© 2024 Nicolas Velasquez Lopez. Todos los derechos reservados.",
-      tagline: "Arquitecto de Soluciones Huawei Cloud • Especialista en IA • Educador en Robótica • Colombia",
+      tagline: "Arquitecto de Soluciones • Especialista en IA • Educador en Robótica • Colombia",
     },
   },
 }
