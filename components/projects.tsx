@@ -22,7 +22,7 @@ export function Projects() {
     {
       title: translations.projects.project2.title,
       description: translations.projects.project2.desc,
-      image: "/educational-robot-with-students.png",
+      image: "/cnc-laser-hummingbird-engraving.jpg",
       technologies: ["ROS", "OpenCV", "Python", "Arduino", "Machine Learning"],
       category: "Robotics & Education",
       link: "#",
@@ -54,7 +54,9 @@ export function Projects() {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className={`w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 ${
+                    index === 1 ? "object-bottom" : "object-center"
+                  }`}
                 />
                 <div className="absolute top-4 left-4">
                   <Badge variant="secondary">{project.category}</Badge>
