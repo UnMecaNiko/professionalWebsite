@@ -1,11 +1,21 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, ArrowDown } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
   const { translations } = useLanguage()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMenuOpen(false)
+  }
 
   return (
     <section
@@ -44,7 +54,11 @@ export function Hero() {
             <MessageCircle className="mr-2 h-5 w-5" />
             {translations.contact.whatsapp}
           </Button>
-          <Button variant="outline" size="lg">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => scrollToSection("projects")}
+          >
             {translations.hero.cta}
             <ArrowDown className="ml-2 h-5 w-5" />
           </Button>
