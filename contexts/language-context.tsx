@@ -84,12 +84,15 @@ const translations = {
         "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss how we can optimize your processes and drive growth.",
       whatsapp: "Contact via WhatsApp",
       whyWork: "Why Work With Me?",
-      experience: "Proven Track Record",
-      experienceDesc: "First place in Huawei's Solutions Architect Competition and recognized business impact",
-      education: "Teaching & Mentoring",
-      educationDesc: "Co-founder of Lápiz Labs, trained 50+ engineers, and passionate about knowledge sharing",
-      innovation: "Technical Excellence",
-      innovationDesc: "HCIP Cloud Service Solutions Architect with expertise in AI, robotics, and automation",
+      experience: "Resilience & Focus",
+      experienceDesc: "I know how to recover from adversity and turn difficult challenges into growth opportunities",
+      education: "Creative Problem Solving",
+      educationDesc: "I explore different paths until finding the best solution for each unique challenge",
+      innovation: "Commitment to Excellence",
+      innovationDesc: "In every project I leave a part of myself and never stop learning and improving",
+      responsibleDesign: "Responsible Design",
+      responsibleDesignDesc:
+        "I think about scalability, performance, availability, cost, and security when creating solutions",
     },
 
     footer: {
@@ -186,14 +189,15 @@ const translations = {
         "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y IA? Hablemos sobre cómo podemos optimizar tus procesos e impulsar el crecimiento.",
       whatsapp: "Contactar por WhatsApp",
       whyWork: "¿Por Qué Trabajar Conmigo?",
-      experience: "Trayectoria Comprobada",
-      experienceDesc:
-        "Primer lugar en la Competencia de Arquitectos de Soluciones de Huawei e impacto empresarial reconocido",
-      education: "Enseñanza y Mentoría",
-      educationDesc:
-        "Co-fundador de Lápiz Labs, entrenó a más de 50 ingenieros y apasionado por compartir conocimiento",
-      innovation: "Excelencia Técnica",
-      innovationDesc: "HCIP Cloud Service Solutions Architect con experiencia en IA, robótica y automatización",
+      experience: "Resiliencia y Enfoque",
+      experienceDesc: "Sé recuperarme de la adversidad y convertir pruebas difíciles en oportunidades de crecimiento",
+      education: "Creatividad para Resolver Problemas",
+      educationDesc: "Busco distintos caminos hasta encontrar la mejor solución para cada desafío único",
+      innovation: "Compromiso con la Excelencia",
+      innovationDesc: "En cada proyecto dejo una parte de mí y nunca dejo de aprender y mejorar",
+      responsibleDesign: "Diseño Responsable",
+      responsibleDesignDesc:
+        "Pienso en la escalabilidad, performance, disponibilidad, precio y seguridad al crear soluciones",
     },
 
     footer: {
