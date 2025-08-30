@@ -13,42 +13,52 @@ export function SpeakingCarousel() {
     {
       src: "/speaking-huawei-podium.jpg",
       alt: "Speaking at Huawei event",
+      position: "object-top",
     },
     {
       src: "/corporate-presentation.jpg",
       alt: "Corporate presentation",
+      position: "object-top",
     },
     {
       src: "/training-session.jpg",
       alt: "Leading training session",
+      position: "object-center",
     },
     {
       src: "/panel-discussion.jpg",
       alt: "Panel discussion participant",
+      position: "object-center",
     },
     {
       src: "/deepseek-presentation.jpg",
       alt: "Deepseek technical presentation",
+      position: "object-center",
     },
     {
       src: "/ai-lab-demo.jpg",
       alt: "AI Lab demonstration",
+      position: "object-center",
     },
     {
       src: "/university-presentation.jpg",
       alt: "University guest speaker",
+      position: "object-center",
     },
     {
       src: "/huawei-cloud-demo.jpg",
       alt: "Huawei Cloud demonstration",
+      position: "object-center",
     },
     {
       src: "/modern-classroom.jpg",
       alt: "Teaching in modern classroom",
+      position: "object-center",
     },
     {
       src: "/hybrid-cloud-presentation.jpg",
       alt: "Hybrid cloud implementation presentation",
+      position: "object-center",
     },
   ]
 
@@ -85,7 +95,7 @@ export function SpeakingCarousel() {
                   <img
                     src={image.src || "/placeholder.svg"}
                     alt={image.alt}
-                    className="w-full h-[400px] md:h-[500px] object-cover"
+                    className={`w-full h-[400px] md:h-[500px] object-cover ${image.position}`}
                   />
                 </div>
               ))}
