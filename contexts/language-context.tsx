@@ -64,8 +64,8 @@ const translations = {
       subtitle: "Explore my work in cloud migration, robotics education, and innovative engineering solutions",
       viewDetails: "View Details",
       project1: {
-        title: "Digital Lottery Cloud Migration",
-        desc: "Led the migration of one of Colombia's largest digital lottery companies to Huawei Cloud, more than doubling their monthly recurring revenue through strategic cloud architecture.",
+        title: "DomiChat – AI Agent for Rural Deliveries",
+        desc: "Developed an AI-powered WhatsApp agent to connect delivery drivers with people in remote areas, bringing essential services to thousands of underserved communities.",
       },
       project2: {
         title: "CNC Laser Machine Build",
@@ -169,8 +169,8 @@ const translations = {
         "Explora mi trabajo en migración a la nube, educación en robótica y soluciones de ingeniería innovadoras",
       viewDetails: "Ver Detalles",
       project1: {
-        title: "Migración de Lotería Digital a la Nube",
-        desc: "Lideré la migración de una de las compañías de lotería digital más grandes de Colombia a Huawei Cloud, más que duplicando sus ingresos recurrentes mensuales a través de arquitectura estratégica en la nube.",
+        title: "DomiChat – Agente de IA para Entregas Rurales",
+        desc: "Desarrollé un agente de IA potenciado por WhatsApp para conectar conductores de entrega con personas en áreas remotas, llevando servicios esenciales a miles de comunidades desatendidas.",
       },
       project2: {
         title: "Construcción de Máquina Láser CNC",

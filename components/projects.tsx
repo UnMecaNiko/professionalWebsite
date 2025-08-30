@@ -13,8 +13,8 @@ export function Projects() {
     {
       title: translations.projects.project1.title,
       description: translations.projects.project1.desc,
-      image: "/industrial-automation-dashboard.png",
-      technologies: ["AWS IoT", "Python", "TensorFlow", "React", "Node.js"],
+      image: "/domichat-whatsapp-interface.png",
+      technologies: ["WhatsApp API", "evolution API", "n8n", "React", "Cloud & AI"],
       category: "Cloud & AI",
       link: "#",
       github: "#",
