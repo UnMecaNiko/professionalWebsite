@@ -30,7 +30,7 @@ export function Contact() {
                 variant="secondary"
                 size="lg"
                 className="w-full"
-                onClick={() => window.open("https://wa.me/1234567890", "_blank")}
+                onClick={() => window.open("https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.", "_blank")}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 {translations.contact.whatsapp}
