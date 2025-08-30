@@ -84,11 +84,11 @@ export function Projects() {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button size="sm" className="flex-1">
+                  <Button size="sm" className="flex-1" onClick={() => window.open(project.link, "_blank")}>
                     <ExternalLink className="mr-2 h-4 w-4" />
                     {translations.projects.viewDetails}
                   </Button>
-                  <Button size="sm" variant="outline">
+                  <Button size="sm" variant="outline" className="flex-1" onClick={() => window.open(project.github, "_blank")}>
                     <Github className="mr-2 h-4 w-4" />
                     Code
                   </Button>
