@@ -11,25 +11,25 @@ export function Footer() {
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/nicolas-velasquez-lopez",
+      url: "https://linkedin.com/in/unmecaniko",
       primary: true,
     },
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/nicolas-velasquez",
+      url: "https://github.com/unmecaniko",
       primary: false,
     },
     {
       name: "YouTube",
       icon: Youtube,
-      url: "https://youtube.com/@nicolas-velasquez",
+      url: "https://youtube.com/@unmecaniko",
       primary: false,
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:nicolas@example.com",
+      url: "mailto:unmecaniko@gmail.com",
       primary: false,
     },
   ]
@@ -74,7 +74,7 @@ export function Footer() {
               <Button
                 variant="secondary"
                 className="w-full justify-start"
-                onClick={() => window.open("https://wa.me/1234567890", "_blank")}
+                onClick={() => window.open("https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.", "_blank")}
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp
@@ -82,7 +82,7 @@ export function Footer() {
               <Button
                 variant="ghost"
                 className="w-full justify-start text-primary-foreground hover:bg-primary-foreground/10"
-                onClick={() => window.open("https://linkedin.com/in/nicolas-velasquez-lopez", "_blank")}
+                onClick={() => window.open("https://linkedin.com/in/unmecaniko", "_blank")}
               >
                 <Linkedin className="mr-2 h-4 w-4" />
                 LinkedIn
