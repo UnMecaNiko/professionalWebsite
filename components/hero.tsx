@@ -57,7 +57,7 @@ export function Hero() {
             <div className="text-muted-foreground">Completed Projects</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">20+</div>
+            <div className="text-3xl font-bold text-primary mb-2">0+</div>
             <div className="text-muted-foreground">Students Trained</div>
           </div>
         </div>
