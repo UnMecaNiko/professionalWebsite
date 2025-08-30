@@ -19,9 +19,9 @@ export function Hero() {
         {/* Profile image */}
         <div className="mb-8">
           <img
-            src="/professional-headshot-of-tech-architect.png"
+            src="/nicolas-profile.jpg"
             alt="Nicolas Velasquez Lopez"
-            className="w-48 h-48 rounded-full mx-auto border-4 border-primary/20 shadow-2xl"
+            className="w-48 h-48 rounded-full mx-auto border-4 border-primary/20 shadow-2xl object-cover"
           />
         </div>
 
