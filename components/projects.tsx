@@ -31,9 +31,15 @@ export function Projects() {
     {
       title: translations.projects.project3.title,
       description: translations.projects.project3.desc,
-      image: "/data-analytics-dashboard.png",
-      technologies: ["Azure", "Power BI", "Apache Spark", "Docker", "Kubernetes"],
-      category: "Cloud & Analytics",
+      image: "/space-call-classroom-workshop.png",
+      technologies: [
+        "Electronics",
+        "Arduino",
+        "Satellite Communication",
+        "International Collaboration",
+        "STEM Education",
+      ],
+      category: "Robotics & Education",
       link: "#",
       github: "#",
     },
