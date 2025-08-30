@@ -57,38 +57,34 @@ export function About() {
               <div className="flex items-start gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <h4 className="font-semibold">Solutions Architect</h4>
-                  <p className="text-muted-foreground">
-                    Specialized in cloud migration and infrastructure optimization
-                  </p>
+                  <h4 className="font-semibold">{translations.about.solutionsArchitect}</h4>
+                  <p className="text-muted-foreground">{translations.about.solutionsArchitectDesc}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <h4 className="font-semibold">AI Developer</h4>
-                  <p className="text-muted-foreground">
-                    Implementation of machine learning models and intelligent automation
-                  </p>
+                  <h4 className="font-semibold">{translations.about.aiDeveloper}</h4>
+                  <p className="text-muted-foreground">{translations.about.aiDeveloperDesc}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <h4 className="font-semibold">Technical Educator</h4>
-                  <p className="text-muted-foreground">Training professionals in emerging technologies</p>
+                  <h4 className="font-semibold">{translations.about.technicalEducator}</h4>
+                  <p className="text-muted-foreground">{translations.about.technicalEducatorDesc}</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
+            <img src="/nicolas-profile.jpg" alt="Nicolas Velasquez Lopez" className="rounded-lg shadow-lg" />
             <img
-              src="/professional-giving-tech-presentation.png"
-              alt="Giving a technical presentation"
+              src="/speaking-huawei-podium.jpg"
+              alt="Speaking at professional events"
               className="rounded-lg shadow-lg"
             />
-            <img src="/tech-team-collaboration.png" alt="Working in a team" className="rounded-lg shadow-lg" />
           </div>
         </div>
       </div>

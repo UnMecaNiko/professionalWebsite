@@ -44,6 +44,18 @@ const translations = {
       roboticsDesc: "ROS, Gazebo, MATLAB, Simulink, and autonomous systems",
       education: "Education & Training",
       educationDesc: "Co-founder of Lápiz Labs, technical training and mentorship",
+      solutionsArchitect: "Solutions Architect",
+      solutionsArchitectDesc: "Specialized in cloud migration and infrastructure optimization",
+      aiDeveloper: "AI Developer",
+      aiDeveloperDesc: "Implementation of machine learning models and intelligent automation",
+      technicalEducator: "Technical Educator",
+      technicalEducatorDesc: "Training professionals in emerging technologies",
+    },
+
+    speaking: {
+      title: "Speaking & Education",
+      description:
+        "Sharing knowledge through conferences, workshops, and technical presentations across Latin America and beyond.",
     },
 
     // Projects
@@ -133,6 +145,18 @@ const translations = {
       roboticsDesc: "ROS, Gazebo, MATLAB, Simulink y sistemas autónomos",
       education: "Educación y Capacitación",
       educationDesc: "Co-fundador de Lápiz Labs, formación técnica y mentoría",
+      solutionsArchitect: "Arquitecto de Soluciones",
+      solutionsArchitectDesc: "Especializado en migración a la nube y optimización de infraestructura",
+      aiDeveloper: "Desarrollador de IA",
+      aiDeveloperDesc: "Implementación de modelos de aprendizaje automático y automatización inteligente",
+      technicalEducator: "Educador Técnico",
+      technicalEducatorDesc: "Formación de profesionales en tecnologías emergentes",
+    },
+
+    speaking: {
+      title: "Conferencias y Educación",
+      description:
+        "Compartiendo conocimiento a través de conferencias, talleres y presentaciones técnicas en Latinoamérica y más allá.",
     },
 
     // Projects
