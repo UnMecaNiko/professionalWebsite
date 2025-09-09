@@ -113,11 +113,15 @@ export function Projects() {
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={project.metadata.coverImage || "/placeholder.svg"}
+                  src={project.metadata.coverImage || "/placeholder.svg?height=256&width=400&query=project thumbnail"}
                   alt={project.metadata.title}
                   className={`w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 ${
                     index === 1 ? "object-bottom" : "object-center"
                   }`}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.src = "/project-thumbnail.png"
+                  }}
                 />
                 <div className="absolute top-4 left-4">
                   <Badge variant="secondary">{project.metadata.categories?.[0] || "Proyecto"}</Badge>

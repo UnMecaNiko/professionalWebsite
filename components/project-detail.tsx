@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -83,9 +85,13 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {metadata.coverImage && (
               <div className="lg:w-1/2">
                 <img
-                  src={metadata.coverImage || "/placeholder.svg"}
+                  src={metadata.coverImage || "/placeholder.svg?height=320&width=600&query=project cover"}
                   alt={metadata.title}
                   className="w-full h-64 lg:h-80 object-cover rounded-lg"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.src = "/abstract-project-cover.png"
+                  }}
                 />
               </div>
             )}
@@ -106,23 +112,75 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </CardContent>
             </Card>
 
-            {/* Gallery */}
-            {metadata.gallery && metadata.gallery.length > 0 && (
-              <Card className="mt-8">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6">Galería</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {metadata.gallery.map((image, index) => (
-                      <img
-                        key={index}
-                        src={image || "/placeholder.svg"}
-                        alt={`${metadata.title} - Imagen ${index + 1}`}
-                        className="w-full h-48 object-cover rounded-lg"
-                      />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+            {((metadata.gallery && metadata.gallery.length > 0) || (metadata.videos && metadata.videos.length > 0)) && (
+              <div className="mt-8 space-y-8">
+                {/* Galería de Fotos */}
+                {metadata.gallery && metadata.gallery.length > 0 && (
+                  <Card>
+                    <CardContent className="p-8">
+                      <h3 className="text-2xl font-bold mb-6">Galería de Fotos</h3>
+                      <div className="relative">
+                        <div className="overflow-x-auto">
+                          <div className="flex gap-4 pb-4" style={{ width: `${metadata.gallery.length * 320}px` }}>
+                            {metadata.gallery.map((image, index) => (
+                              <div key={index} className="flex-shrink-0 w-80">
+                                <img
+                                  src={image || "/placeholder.svg?height=240&width=320&query=gallery image"}
+                                  alt={`${metadata.title} - Imagen ${index + 1}`}
+                                  className="w-full h-60 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                                  onError={(e) => {
+                                    const target = e.target as HTMLImageElement
+                                    target.src = "/art-gallery-exhibition.png"
+                                  }}
+                                  onClick={() => window.open(image, "_blank")}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        {metadata.gallery.length > 1 && (
+                          <div className="flex justify-center mt-4 gap-2">
+                            {metadata.gallery.map((_, index) => (
+                              <div key={index} className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* Galería de Videos */}
+                {metadata.videos && metadata.videos.length > 0 && (
+                  <Card>
+                    <CardContent className="p-8">
+                      <h3 className="text-2xl font-bold mb-6">Videos</h3>
+                      <div className="relative">
+                        <div className="overflow-x-auto">
+                          <div className="flex gap-4 pb-4" style={{ width: `${metadata.videos.length * 400}px` }}>
+                            {metadata.videos.map((video, index) => (
+                              <div key={index} className="flex-shrink-0 w-96">
+                                <div className="relative bg-black rounded-lg overflow-hidden">
+                                  <video src={video} className="w-full h-60 object-cover" controls preload="metadata">
+                                    Tu navegador no soporta el elemento de video.
+                                  </video>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        {metadata.videos.length > 1 && (
+                          <div className="flex justify-center mt-4 gap-2">
+                            {metadata.videos.map((_, index) => (
+                              <div key={index} className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
             )}
           </div>
 
