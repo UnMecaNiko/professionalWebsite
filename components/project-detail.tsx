@@ -85,7 +85,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {metadata.coverImage && (
               <div className="lg:w-1/2">
                 <img
-                  src={metadata.coverImage || "/placeholder.svg?height=320&width=600&query=project cover"}
+                  src={metadata.coverImage}
                   alt={metadata.title}
                   className="w-full h-64 lg:h-80 object-cover rounded-lg"
                   onError={(e) => {
@@ -125,7 +125,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                             {metadata.gallery.map((image, index) => (
                               <div key={index} className="flex-shrink-0 w-80">
                                 <img
-                                  src={image || "/placeholder.svg?height=240&width=320&query=gallery image"}
+                                  src={image}
                                   alt={`${metadata.title} - Imagen ${index + 1}`}
                                   className="w-full h-60 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
                                   onError={(e) => {
