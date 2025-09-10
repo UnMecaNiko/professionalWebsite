@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     openGraph: {
       title: project.metadata.title,
       description: project.metadata.description,
-      images: project.metadata.coverImage ? [project.metadata.coverImage] : [],
+      images: project.metadata.cover ? [project.metadata.cover] : [],
     },
   }
 }

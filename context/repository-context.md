@@ -56,7 +56,7 @@ Frontmatter fields supported by the site (see `lib/github.ts`):
 - `categories` (string[]): High-level categories
 - `technologies` (string[]): Tech stack
 - `tags` (string[]): Additional labels
-- `coverImage` (string): URL/path to hero image
+- `cover` (string): URL/path to hero image
 - `gallery` (string[], optional): Additional image URLs
 - `videos` (string[], optional): Video URLs
 - `team` (string[], optional): Team members
@@ -77,7 +77,7 @@ endDate: 2024-08
 categories: ["AI", "Social Impact"]
 technologies: ["Python", "LangChain", "WhatsApp API"]
 tags: ["LLM", "Agent", "Bots"]
-coverImage: https://example.com/images/domichat-cover.jpg
+cover: https://example.com/images/domichat-cover.jpg
 gallery: [
   "https://example.com/images/domichat-1.jpg",
   "https://example.com/images/domichat-2.jpg"

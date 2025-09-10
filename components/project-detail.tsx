@@ -82,10 +82,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </div>
             </div>
 
-            {metadata.coverImage && (
+            {metadata.cover && (
               <div className="lg:w-1/2">
                 <img
-                  src={metadata.coverImage}
+                  src={metadata.cover}
                   alt={metadata.title}
                   className="w-full h-64 lg:h-80 object-cover rounded-lg"
                   onError={(e) => {

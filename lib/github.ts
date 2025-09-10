@@ -10,7 +10,7 @@ export interface ProjectMetadata {
   categories: string[]
   technologies: string[]
   tags: string[]
-  coverImage: string
+  cover: string
   gallery?: string[]
   videos?: string[]
   team?: string[]

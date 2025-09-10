@@ -77,7 +77,7 @@ export function Projects() {
             <Card key={project.metadata.slug} className="overflow-hidden hover:shadow-xl transition-shadow group">
               <div className="relative overflow-hidden">
                 <img
-                  src={project.metadata.coverImage || "/project-thumbnail.png"}
+                  src={project.metadata.cover || "/project-thumbnail.png"}
                   alt={project.metadata.title}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
