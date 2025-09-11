@@ -228,7 +228,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {metadata.links && Object.keys(metadata.links).length > 0 && (
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Enlaces</h3>
+                  <h3 className="font-semibold mb-4">Links</h3>
                   <div className="space-y-3">
                     {Object.entries(metadata.links).map(([key, url]) => {
                       const getLinkIcon = (linkKey: string) => {
@@ -307,7 +307,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {/* Project Info */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">Información del Proyecto</h3>
+                <h3 className="font-semibold mb-4">Project Info</h3>
                 <div className="space-y-3 text-sm">
                   {metadata.client && (
                     <div>
