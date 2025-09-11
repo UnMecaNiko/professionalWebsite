@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Users } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Users, FileText, Linkedin } from "lucide-react"
 import Link from "next/link"
 import type { Project } from "@/lib/github"
 import ReactMarkdown from "react-markdown"
@@ -87,7 +87,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {metadata.cover && (
               <div className="lg:w-1/2">
                 <img
-                  src={metadata.cover}
+                  src={metadata.cover || "/placeholder.svg"}
                   alt={metadata.title}
                   className="w-full h-64 lg:h-80 object-cover rounded-lg"
                   onError={(e) => {
@@ -109,11 +109,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             <Card>
               <CardContent className="p-8">
                 <div className="prose prose-lg max-w-none">
-                  <ReactMarkdown
-                    rehypePlugins={[rehypeRaw, rehypeSanitize]}
-                  >
-                    {content}
-                  </ReactMarkdown>
+                  <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSanitize]}>{content}</ReactMarkdown>
                 </div>
               </CardContent>
             </Card>
@@ -132,7 +128,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                               <div key={index} className="flex-shrink-0 w-80">
                                 <div className="relative group">
                                   <img
-                                    src={image.url}
+                                    src={image.url || "/placeholder.svg"}
                                     alt={image.caption || `${metadata.title} - Imagen ${index + 1}`}
                                     className="w-full h-60 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
                                     onError={(e) => {
@@ -194,10 +190,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                                     />
                                   ) : (
                                     // Fallback for direct video files or other providers
-                                    <video 
-                                      src={video.id} 
-                                      className="w-full h-60 object-cover" 
-                                      controls 
+                                    <video
+                                      src={video.id}
+                                      className="w-full h-60 object-cover"
+                                      controls
                                       preload="metadata"
                                     >
                                       Tu navegador no soporta el elemento de video.
@@ -228,6 +224,54 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Links */}
+            {metadata.links && Object.keys(metadata.links).length > 0 && (
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-4">Enlaces</h3>
+                  <div className="space-y-3">
+                    {Object.entries(metadata.links).map(([key, url]) => {
+                      const getLinkIcon = (linkKey: string) => {
+                        if (linkKey.includes("repo") || linkKey.includes("github")) {
+                          return <Github className="h-4 w-4" />
+                        }
+                        if (linkKey.includes("post") || linkKey.includes("linkedin")) {
+                          return <Linkedin className="h-4 w-4" />
+                        }
+                        if (linkKey.includes("deck") || linkKey.includes("pdf")) {
+                          return <FileText className="h-4 w-4" />
+                        }
+                        return <ExternalLink className="h-4 w-4" />
+                      }
+
+                      const getLinkLabel = (linkKey: string) => {
+                        if (linkKey.includes("repo") || linkKey.includes("github")) return "Repositorio"
+                        if (linkKey.includes("demo")) return "Demo"
+                        if (linkKey.includes("deck")) return "Presentación"
+                        if (linkKey.includes("post")) return "Post"
+                        return linkKey.charAt(0).toUpperCase() + linkKey.slice(1)
+                      }
+
+                      return (
+                        <Button
+                          key={key}
+                          variant="outline"
+                          size="sm"
+                          className="w-full justify-start bg-transparent"
+                          asChild
+                        >
+                          <a href={url} target="_blank" rel="noopener noreferrer">
+                            {getLinkIcon(key)}
+                            <span className="ml-2">{getLinkLabel(key)}</span>
+                          </a>
+                        </Button>
+                      )
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Technologies */}
             {metadata.technologies && (
               <Card>

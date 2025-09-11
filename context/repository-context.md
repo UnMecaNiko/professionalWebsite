@@ -67,7 +67,7 @@ Frontmatter fields supported by the site (see `lib/github.ts`):
 - `github` (string, optional): Repository URL
 
 Example frontmatter:
-```markdown
+\`\`\`markdown
 ---
 title: DomiChat – AI Agent for Rural Deliveries
 description: AI-powered WhatsApp agent connecting drivers with remote communities.
@@ -94,7 +94,7 @@ github: https://github.com/UnMecaNiko/domichat
 ---
 
 Long-form markdown content here...
-```
+\`\`\`
 
 ## Advantages
 1. Centralized content in a dedicated repo

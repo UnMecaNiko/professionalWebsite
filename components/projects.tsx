@@ -75,20 +75,22 @@ export function Projects() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card key={project.metadata.slug} className="overflow-hidden hover:shadow-xl transition-shadow group">
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.metadata.cover || "/project-thumbnail.png"}
-                  alt={project.metadata.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement
-                    target.src = "/project-thumbnail.png"
-                  }}
-                />
-                <div className="absolute top-4 left-4">
-                  <Badge variant="secondary">{project.metadata.categories?.[0] || "Proyecto"}</Badge>
+              <Link href={`/projects/${project.metadata.slug}`} className="block">
+                <div className="relative overflow-hidden cursor-pointer">
+                  <img
+                    src={project.metadata.cover || "/project-thumbnail.png"}
+                    alt={project.metadata.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = "/project-thumbnail.png"
+                    }}
+                  />
+                  <div className="absolute top-4 left-4">
+                    <Badge variant="secondary">{project.metadata.categories?.[0] || "Proyecto"}</Badge>
+                  </div>
                 </div>
-              </div>
+              </Link>
 
               <CardHeader>
                 <CardTitle className="text-xl">{project.metadata.title}</CardTitle>
