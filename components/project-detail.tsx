@@ -23,7 +23,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       <div className="border-b">
         <div className="container mx-auto px-4 py-6">
           <Link href="/#projects">
-            <Button variant="ghost" size="sm" className="mb-4">
+            <Button variant="ghost" size="sm" className="mb-4 cursor-pointer">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Volver a Proyectos
             </Button>

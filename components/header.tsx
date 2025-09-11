@@ -29,9 +29,9 @@ export function Header() {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
+              className="text-xl font-bold text-primary hover:text-primary/80 transition-colors cursor-pointer"
             >
-              {"Nicolas Velasquez Lopez"}
+              {translations.name}
             </button>
           </div>
 
@@ -39,19 +39,19 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("about")}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
             >
               {translations.nav.about}
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
             >
               {translations.nav.projects}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
             >
               {translations.nav.contact}
             </button>
@@ -94,19 +94,19 @@ export function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               <button
                 onClick={() => scrollToSection("about")}
-                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium cursor-pointer"
               >
                 {translations.nav.about}
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
-                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium cursor-pointer"
               >
                 {translations.nav.projects}
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium cursor-pointer"
               >
                 {translations.nav.contact}
               </button>
