@@ -25,7 +25,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <Link href="/#projects">
             <Button variant="ghost" size="sm" className="mb-4 cursor-pointer">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Volver a Proyectos
+              Back to projects
             </Button>
           </Link>
 
@@ -116,11 +116,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
             {((metadata.gallery && metadata.gallery.length > 0) || (metadata.videos && metadata.videos.length > 0)) && (
               <div className="mt-8 space-y-8">
-                {/* Galería de Fotos */}
+                {/* Gallery */}
                 {metadata.gallery && metadata.gallery.length > 0 && (
                   <Card>
                     <CardContent className="p-8">
-                      <h3 className="text-2xl font-bold mb-6">Galería de Fotos</h3>
+                      <h3 className="text-2xl font-bold mb-6">Gallery</h3>
                       <div className="relative">
                         <div className="overflow-x-auto">
                           <div className="flex gap-4 pb-4" style={{ width: `${metadata.gallery.length * 320}px` }}>
