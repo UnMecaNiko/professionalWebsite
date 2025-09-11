@@ -320,7 +320,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                     </div>
                   )}
                   <div>
-                    <span className="font-medium">Estado:</span> {metadata.status}
+                    <span className="font-medium">State:</span> {metadata.status}
                   </div>
                 </div>
               </CardContent>
