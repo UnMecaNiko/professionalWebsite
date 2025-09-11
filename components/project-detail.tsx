@@ -7,6 +7,7 @@ import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Users } from "lucide
 import Link from "next/link"
 import type { Project } from "@/lib/github"
 import ReactMarkdown from "react-markdown"
+import rehypeRaw from "rehype-raw"
 
 interface ProjectDetailProps {
   project: Project
@@ -107,7 +108,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             <Card>
               <CardContent className="p-8">
                 <div className="prose prose-lg max-w-none">
-                  <ReactMarkdown>{content}</ReactMarkdown>
+                  <ReactMarkdown
+                    rehypePlugins={[rehypeRaw]}
+                  >
+                    {content}
+                  </ReactMarkdown>
                 </div>
               </CardContent>
             </Card>
