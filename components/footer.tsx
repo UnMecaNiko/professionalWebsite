@@ -48,7 +48,7 @@ export function Footer() {
                   key={index}
                   variant={social.primary ? "secondary" : "ghost"}
                   size="sm"
-                  className={social.primary ? "" : "text-primary-foreground hover:bg-primary-foreground/10"}
+                  className={`cursor-pointer ${social.primary ? "" : "text-primary-foreground hover:bg-primary-foreground/10"}`}
                   onClick={() => window.open(social.url, "_blank")}
                 >
                   <social.icon className="h-4 w-4" />
@@ -73,15 +73,20 @@ export function Footer() {
             <div className="space-y-3">
               <Button
                 variant="secondary"
-                className="w-full justify-start"
-                onClick={() => window.open("https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.", "_blank")}
+                className="w-full justify-start cursor-pointer"
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
+                    "_blank",
+                  )
+                }
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start text-primary-foreground hover:bg-primary-foreground/10"
+                className="w-full justify-start text-primary-foreground hover:bg-primary-foreground/10 cursor-pointer"
                 onClick={() => window.open("https://linkedin.com/in/unmecaniko", "_blank")}
               >
                 <Linkedin className="mr-2 h-4 w-4" />

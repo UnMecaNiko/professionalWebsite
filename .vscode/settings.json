@@ -1,0 +1,16 @@
+{
+    "chatgpt.openOnStartup": true,
+    "chat.mcp.discovery.enabled": true,
+    "mcp": {
+        "servers": {
+            "mcp-unmecaniko-projects": {
+                "type": "stdio",
+                "command": "python",
+                "args": [
+                    "N:\\unmecaniko-projects\\context\\main.py"
+                ]
+            }
+        },
+        "inputs": []
+    }
+}
