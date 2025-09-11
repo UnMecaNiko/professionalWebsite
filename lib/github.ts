@@ -1,5 +1,16 @@
 import matter from "gray-matter"
 
+export interface GalleryImage {
+  url: string
+  caption?: string
+}
+
+export interface Video {
+  provider: string
+  id: string
+  title?: string
+}
+
 export interface ProjectMetadata {
   title: string
   slug: string
@@ -11,8 +22,8 @@ export interface ProjectMetadata {
   technologies: string[]
   tags: string[]
   cover: string
-  gallery?: string[]
-  videos?: string[]
+  gallery?: GalleryImage[]
+  videos?: Video[]
   team?: string[]
   client?: string
   location?: string

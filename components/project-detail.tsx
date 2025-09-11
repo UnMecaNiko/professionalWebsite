@@ -124,16 +124,23 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                           <div className="flex gap-4 pb-4" style={{ width: `${metadata.gallery.length * 320}px` }}>
                             {metadata.gallery.map((image, index) => (
                               <div key={index} className="flex-shrink-0 w-80">
-                                <img
-                                  src={image}
-                                  alt={`${metadata.title} - Imagen ${index + 1}`}
-                                  className="w-full h-60 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                                  onError={(e) => {
-                                    const target = e.target as HTMLImageElement
-                                    target.src = "/art-gallery-exhibition.png"
-                                  }}
-                                  onClick={() => window.open(image, "_blank")}
-                                />
+                                <div className="relative group">
+                                  <img
+                                    src={image.url}
+                                    alt={image.caption || `${metadata.title} - Imagen ${index + 1}`}
+                                    className="w-full h-60 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                                    onError={(e) => {
+                                      const target = e.target as HTMLImageElement
+                                      target.src = "/art-gallery-exhibition.png"
+                                    }}
+                                    onClick={() => window.open(image.url, "_blank")}
+                                  />
+                                  {image.caption && (
+                                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-2 rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                      <p className="text-sm">{image.caption}</p>
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             ))}
                           </div>
@@ -161,10 +168,39 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                             {metadata.videos.map((video, index) => (
                               <div key={index} className="flex-shrink-0 w-96">
                                 <div className="relative bg-black rounded-lg overflow-hidden">
-                                  <video src={video} className="w-full h-60 object-cover" controls preload="metadata">
-                                    Tu navegador no soporta el elemento de video.
-                                  </video>
+                                  {video.provider === "youtube" ? (
+                                    <iframe
+                                      src={`https://www.youtube.com/embed/${video.id}`}
+                                      title={video.title || `Video ${index + 1}`}
+                                      className="w-full h-60"
+                                      frameBorder="0"
+                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                      allowFullScreen
+                                    />
+                                  ) : video.provider === "vimeo" ? (
+                                    <iframe
+                                      src={`https://player.vimeo.com/video/${video.id}`}
+                                      title={video.title || `Video ${index + 1}`}
+                                      className="w-full h-60"
+                                      frameBorder="0"
+                                      allow="autoplay; fullscreen; picture-in-picture"
+                                      allowFullScreen
+                                    />
+                                  ) : (
+                                    // Fallback for direct video files or other providers
+                                    <video 
+                                      src={video.id} 
+                                      className="w-full h-60 object-cover" 
+                                      controls 
+                                      preload="metadata"
+                                    >
+                                      Tu navegador no soporta el elemento de video.
+                                    </video>
+                                  )}
                                 </div>
+                                {video.title && (
+                                  <p className="mt-2 text-sm text-muted-foreground text-center">{video.title}</p>
+                                )}
                               </div>
                             ))}
                           </div>
