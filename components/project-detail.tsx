@@ -8,6 +8,7 @@ import Link from "next/link"
 import type { Project } from "@/lib/github"
 import ReactMarkdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
+import rehypeSanitize from "rehype-sanitize"
 
 interface ProjectDetailProps {
   project: Project
@@ -109,7 +110,21 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <CardContent className="p-8">
                 <div className="prose prose-lg max-w-none">
                   <ReactMarkdown
-                    rehypePlugins={[rehypeRaw]}
+                    rehypePlugins={[
+                      rehypeRaw,
+                      [
+                        rehypeSanitize,
+                        {
+                          tagNames: ['img', 'p', 'div', 'span'],
+                          attributes: {
+                            img: ['src', 'alt', 'title', 'width', 'height', 'style', 'class'],
+                            p: ['align', 'class', 'style'],
+                            div: ['class', 'style'],
+                            span: ['class', 'style']
+                          }
+                        }
+                      ]
+                    ]}
                   >
                     {content}
                   </ReactMarkdown>
