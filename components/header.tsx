@@ -31,7 +31,7 @@ export function Header() {
               onClick={() => scrollToSection("hero")}
               className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
             >
-              {"Nicolas Velasquez Lopez"}       
+              {"Nicolas Velasquez Lopez"}
             </button>
           </div>
 
@@ -65,8 +65,13 @@ export function Header() {
               {language === "en" ? "ES" : "EN"}
             </Button>
             <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
+                  "_blank",
+                )
+              }
+              className="bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
             >
               {translations.nav.workTogether}
             </Button>
@@ -107,8 +112,13 @@ export function Header() {
               </button>
               <div className="px-3 py-2">
                 <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
+                      "_blank",
+                    )
+                  }
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
                 >
                   {translations.nav.workTogether}
                 </Button>
