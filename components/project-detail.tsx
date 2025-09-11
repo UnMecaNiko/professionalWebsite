@@ -218,6 +218,92 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                     </CardContent>
                   </Card>
                 )}
+
+                {/* Posts de LinkedIn */}
+                {metadata.links &&
+                  Object.entries(metadata.links).some(([key]) => key.includes("post") || key.includes("linkedin")) && (
+                    <Card>
+                      <CardContent className="p-8">
+                        <h3 className="text-2xl font-bold mb-6">Posts de LinkedIn</h3>
+                        <div className="relative">
+                          <div className="overflow-x-auto">
+                            {(() => {
+                              const linkedinPosts = Object.entries(metadata.links).filter(
+                                ([key]) => key.includes("post") || key.includes("linkedin"),
+                              )
+                              return (
+                                <div className="flex gap-4 pb-4" style={{ width: `${linkedinPosts.length * 520}px` }}>
+                                  {linkedinPosts.map(([key, url], index) => {
+                                    // Extraer el ID del post de LinkedIn de la URL
+                                    const getLinkedInEmbedUrl = (linkedinUrl: string) => {
+                                      // Convertir URL de LinkedIn a formato embed
+                                      if (linkedinUrl.includes("linkedin.com/posts/")) {
+                                        const postId = linkedinUrl.split("/posts/")[1].split("?")[0]
+                                        return `https://www.linkedin.com/embed/feed/update/urn:li:share:${postId}`
+                                      } else if (linkedinUrl.includes("linkedin.com/feed/update/")) {
+                                        return linkedinUrl.replace("/feed/update/", "/embed/feed/update/")
+                                      }
+                                      return null
+                                    }
+
+                                    const embedUrl = getLinkedInEmbedUrl(url)
+
+                                    return (
+                                      <div key={key} className="flex-shrink-0 w-[500px]">
+                                        <div className="relative bg-white rounded-lg overflow-hidden border">
+                                          {embedUrl ? (
+                                            <iframe
+                                              src={embedUrl}
+                                              title={`LinkedIn Post ${index + 1}`}
+                                              className="w-full h-[600px]"
+                                              frameBorder="0"
+                                              allowTransparency={true}
+                                              allow="encrypted-media"
+                                            />
+                                          ) : (
+                                            // Fallback si no se puede embeber
+                                            <div className="w-full h-[600px] flex flex-col items-center justify-center bg-gray-50 border-2 border-dashed border-gray-300">
+                                              <Linkedin className="h-12 w-12 text-blue-600 mb-4" />
+                                              <p className="text-lg font-semibold mb-2">Post de LinkedIn</p>
+                                              <p className="text-sm text-muted-foreground mb-4 text-center px-4">
+                                                No se puede mostrar el embed. Haz clic para ver el post original.
+                                              </p>
+                                              <Button asChild>
+                                                <a href={url} target="_blank" rel="noopener noreferrer">
+                                                  Ver Post
+                                                </a>
+                                              </Button>
+                                            </div>
+                                          )}
+                                        </div>
+                                        <p className="mt-2 text-sm text-muted-foreground text-center">
+                                          {key
+                                            .replace(/_/g, " ")
+                                            .replace(/post/gi, "Post")
+                                            .replace(/linkedin/gi, "LinkedIn")}
+                                        </p>
+                                      </div>
+                                    )
+                                  })}
+                                </div>
+                              )
+                            })()}
+                          </div>
+                          {Object.entries(metadata.links).filter(
+                            ([key]) => key.includes("post") || key.includes("linkedin"),
+                          ).length > 1 && (
+                            <div className="flex justify-center mt-4 gap-2">
+                              {Object.entries(metadata.links)
+                                .filter(([key]) => key.includes("post") || key.includes("linkedin"))
+                                .map((_, index) => (
+                                  <div key={index} className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+                                ))}
+                            </div>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
               </div>
             )}
           </div>
