@@ -13,6 +13,7 @@ interface LanguageContextType {
 const translations = {
   en: {
     name: "Nicolas Velasquez Lopez",
+    
     // Header
     nav: {
       about: "About",
