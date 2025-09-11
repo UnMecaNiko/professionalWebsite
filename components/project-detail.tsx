@@ -110,21 +110,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <CardContent className="p-8">
                 <div className="prose prose-lg max-w-none">
                   <ReactMarkdown
-                    rehypePlugins={[
-                      rehypeRaw,
-                      [
-                        rehypeSanitize,
-                        {
-                          tagNames: ['img', 'p', 'div', 'span'],
-                          attributes: {
-                            img: ['src', 'alt', 'title', 'width', 'height', 'style', 'class'],
-                            p: ['align', 'class', 'style'],
-                            div: ['class', 'style'],
-                            span: ['class', 'style']
-                          }
-                        }
-                      ]
-                    ]}
+                    rehypePlugins={[rehypeRaw, rehypeSanitize]}
                   >
                     {content}
                   </ReactMarkdown>
