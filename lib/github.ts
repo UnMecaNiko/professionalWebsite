@@ -19,7 +19,7 @@ export interface ProjectMetadata {
   startDate: string
   endDate?: string
   categories: string[]
-  technologies: string[]
+  tech: string[]
   tags: string[]
   cover: string
   gallery?: GalleryImage[]

@@ -245,9 +245,9 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       }
 
                       const getLinkLabel = (linkKey: string) => {
-                        if (linkKey.includes("repo") || linkKey.includes("github")) return "Repositorio"
+                        if (linkKey.includes("repo") || linkKey.includes("github")) return "Repo"
                         if (linkKey.includes("demo")) return "Demo"
-                        if (linkKey.includes("deck")) return "Presentación"
+                        if (linkKey.includes("deck")) return "Presentation"
                         if (linkKey.includes("post")) return "Post"
                         return linkKey.charAt(0).toUpperCase() + linkKey.slice(1)
                       }
@@ -273,12 +273,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             )}
 
             {/* Technologies */}
-            {metadata.technologies && (
+            {metadata.tech && (
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Tecnologías</h3>
+                  <h3 className="font-semibold mb-4">Tech</h3>
                   <div className="flex flex-wrap gap-2">
-                    {metadata.technologies.map((tech) => (
+                    {metadata.tech.map((tech) => (
                       <Badge key={tech} variant="outline">
                         {tech}
                       </Badge>
