@@ -273,10 +273,10 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             )}
 
             {/* Technologies */}
-            {metadata.technologies && (
+            {metadata.tech && (
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Tecnologías</h3>
+                  <h3 className="font-semibold mb-4">Tech</h3>
                   <div className="flex flex-wrap gap-2">
                     {metadata.technologies.map((tech) => (
                       <Badge key={tech} variant="outline">
