@@ -245,9 +245,9 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       }
 
                       const getLinkLabel = (linkKey: string) => {
-                        if (linkKey.includes("repo") || linkKey.includes("github")) return "Repositorio"
+                        if (linkKey.includes("repo") || linkKey.includes("github")) return "Repo"
                         if (linkKey.includes("demo")) return "Demo"
-                        if (linkKey.includes("deck")) return "Presentación"
+                        if (linkKey.includes("deck")) return "Presentation"
                         if (linkKey.includes("post")) return "Post"
                         return linkKey.charAt(0).toUpperCase() + linkKey.slice(1)
                       }
