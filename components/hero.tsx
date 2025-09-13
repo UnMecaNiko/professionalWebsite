@@ -48,8 +48,13 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90"
-            onClick={() => window.open("https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.", "_blank")}
+            className="bg-primary hover:bg-primary/90 cursor-pointer"
+            onClick={() =>
+              window.open(
+                "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
+                "_blank",
+              )
+            }
           >
             <MessageCircle className="mr-2 h-5 w-5" />
             {translations.contact.whatsapp}
@@ -57,6 +62,7 @@ export function Hero() {
           <Button
             variant="outline"
             size="lg"
+            className="cursor-pointer bg-transparent"
             onClick={() => scrollToSection("projects")}
           >
             {translations.hero.cta}
