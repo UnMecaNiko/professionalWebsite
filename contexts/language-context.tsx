@@ -41,7 +41,7 @@ const translations = {
       cloud: "Cloud Architecture",
       cloudDesc: "Cloud solutions, Terraform, security and cost optimization",
       ai: "Artificial Intelligence",
-      aiDesc: "Designing AI-driven solutions for enterprises, guiding adoption, and empowering teams through education",
+      aiDesc: "Transforming businesses with AI solutions, guiding their journey, and fostering a culture of learning",
       robotics: "Robotics & Automation",
       roboticsDesc: "ROS, Gazebo, MATLAB, Simulink, and autonomous systems",
       education: "Education & Training",
