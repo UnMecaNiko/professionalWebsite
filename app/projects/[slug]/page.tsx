@@ -3,9 +3,7 @@ import { getProject, getAllProjects } from "@/lib/github"
 import { ProjectDetail } from "@/components/project-detail"
 
 interface ProjectPageProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -16,11 +14,12 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const project = await getProject(params.slug)
+  const { slug } = await params
+  const project = await getProject(slug)
 
   if (!project) {
     return {
-      title: "Proyecto no encontrado",
+      title: "Project not found",
     }
   }
 
@@ -36,7 +35,8 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const project = await getProject(params.slug)
+  const { slug } = await params
+  const project = await getProject(slug)
 
   if (!project) {
     notFound()

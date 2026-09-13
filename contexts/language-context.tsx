@@ -65,17 +65,29 @@ const translations = {
       title: "Featured Projects",
       subtitle: "Explore my work in cloud migration, robotics education, and innovative engineering solutions",
       viewDetails: "View Details",
-      project1: {
-        title: "DomiChat – AI Agent for Rural Deliveries",
-        desc: "Developed an AI-powered WhatsApp agent to connect delivery drivers with people in remote areas, bringing essential services to thousands of underserved communities.",
-      },
-      project2: {
-        title: "CNC Laser Machine Build",
-        desc: "Built a custom CNC laser machine with 80W laser head and 40×40 cm work area, capable of cutting 5mm wood and engraving leather, steel, and plywood.",
-      },
-      project3: {
-        title: "Space Call Project - International Education",
-        desc: "Scientific Instructor for international program supporting students from 6 countries in building electronic boards launched into space, connecting cultures through technology.",
+      code: "Code",
+      empty: "No projects available right now.",
+      ongoing: "Present",
+    },
+
+    // Project detail page
+    project: {
+      back: "Back to projects",
+      viewProject: "View Project",
+      code: "Code",
+      impact: "Impact",
+      gallery: "Gallery",
+      videos: "Videos",
+      links: "Links",
+      tech: "Tech",
+      tags: "Tags",
+      lastUpdated: "Last updated",
+      ongoing: "Present",
+      status: {
+        active: "Active",
+        ended: "Completed",
+        archived: "Archived",
+        prototype: "Prototype",
       },
     },
 
@@ -113,7 +125,7 @@ const translations = {
       contact: {
         title: "Contact",
       },
-      copyright: "© 2025 Nicolas Velasquez Lopez. All rights reserved.",
+      copyright: "© 2026 Nicolas Velasquez Lopez. All rights reserved.",
       tagline: "Cloud Solutions Architect • AI Specialist • Robotics Educator • Colombia",
     },
   },
@@ -171,17 +183,29 @@ const translations = {
       subtitle:
         "Explora mi trabajo en migración a la nube, educación en robótica y soluciones de ingeniería innovadoras",
       viewDetails: "Ver Detalles",
-      project1: {
-        title: "DomiChat – Agente de IA para Entregas Rurales",
-        desc: "Desarrollé un agente de IA potenciado por WhatsApp para conectar conductores de entrega con personas en áreas remotas, llevando servicios esenciales a miles de comunidades desatendidas.",
-      },
-      project2: {
-        title: "Construcción de Máquina Láser CNC",
-        desc: "Construí una máquina láser CNC personalizada con cabezal láser de 80W y área de trabajo de 40×40 cm, capaz de cortar madera de 5mm y grabar cuero, acero y contrachapado.",
-      },
-      project3: {
-        title: "Proyecto Space Call - Educación Internacional",
-        desc: "Instructor Científico para programa internacional apoyando estudiantes de 6 países en la construcción de placas electrónicas lanzadas al espacio, conectando culturas a través de la tecnología.",
+      code: "Código",
+      empty: "No hay proyectos disponibles en este momento.",
+      ongoing: "Actualidad",
+    },
+
+    // Project detail page
+    project: {
+      back: "Volver a proyectos",
+      viewProject: "Ver Proyecto",
+      code: "Código",
+      impact: "Impacto",
+      gallery: "Galería",
+      videos: "Videos",
+      links: "Enlaces",
+      tech: "Tecnologías",
+      tags: "Etiquetas",
+      lastUpdated: "Última actualización",
+      ongoing: "Actualidad",
+      status: {
+        active: "Activo",
+        ended: "Terminado",
+        archived: "Archivado",
+        prototype: "Prototipo",
       },
     },
 
@@ -219,7 +243,7 @@ const translations = {
       contact: {
         title: "Contacto",
       },
-      copyright: "© 2024 Nicolas Velasquez Lopez. Todos los derechos reservados.",
+      copyright: "© 2026 Nicolas Velasquez Lopez. Todos los derechos reservados.",
       tagline: "Arquitecto de Soluciones • Especialista en IA • Educador en Robótica • Colombia",
     },
   },

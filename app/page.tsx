@@ -2,11 +2,18 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { SpeakingCarousel } from "@/components/speaking-carousel"
-import { Projects } from "@/components/projects"
+import { ProjectsList } from "@/components/projects-list"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { getAllProjects } from "@/lib/github"
 
-export default function Home() {
+/**
+ * The projects are fetched here, on the server, so they ship inside the HTML.
+ * Loading them from the client left crawlers looking at a spinner.
+ */
+export default async function Home() {
+  const projects = await getAllProjects()
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -14,7 +21,7 @@ export default function Home() {
         <Hero />
         <About />
         <SpeakingCarousel />
-        <Projects />
+        <ProjectsList projects={projects} />
         <Contact />
         <Footer />
       </div>

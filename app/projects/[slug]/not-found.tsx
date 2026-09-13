@@ -11,20 +11,20 @@ export default function NotFound() {
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold">Proyecto no encontrado</h1>
-          <p className="text-muted-foreground">El proyecto que buscas no existe o ha sido movido.</p>
+          <h1 className="text-3xl font-bold">Project not found</h1>
+          <p className="text-muted-foreground">The project you are looking for does not exist or has been moved.</p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild>
             <Link href="/#projects">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Volver a Proyectos
+              Back to projects
             </Link>
           </Button>
 
           <Button variant="outline" asChild>
-            <Link href="/">Ir al Inicio</Link>
+            <Link href="/">Go home</Link>
           </Button>
         </div>
       </div>
