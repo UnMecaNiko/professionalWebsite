@@ -80,7 +80,7 @@ export function Projects() {
                   <img
                     src={project.metadata.cover || "/project-thumbnail.png"}
                     alt={project.metadata.title}
-                    className="w-full h-64 object-contain bg-transparent group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement
                       target.src = "/project-thumbnail.png"

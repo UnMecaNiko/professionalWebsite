@@ -89,7 +89,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 <img
                   src={metadata.cover || "/placeholder.svg"}
                   alt={metadata.title}
-                  className="w-full h-64 lg:h-80 object-contain rounded-lg bg-transparent"
+                  className="w-full h-64 lg:h-80 object-cover rounded-lg"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     target.src = "/abstract-project-cover.png"
