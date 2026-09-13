@@ -98,9 +98,22 @@ export async function getProject(slug: string): Promise<Project | null> {
   }
 }
 
+const VERSIONED_SLUG = /^(.*)-v(\d+)$/i
+
+function compareProjectSlugs(a: string, b: string): number {
+  const left = a.match(VERSIONED_SLUG)
+  const right = b.match(VERSIONED_SLUG)
+  if (left && right && left[1].toLowerCase() === right[1].toLowerCase()) {
+    return Number(right[2]) - Number(left[2])
+  }
+  return a.localeCompare(b)
+}
+
 export async function getAllProjects(): Promise<Project[]> {
   const slugs = await getProjectSlugs()
   const projects = await Promise.all(slugs.map((slug) => getProject(slug)))
 
-  return projects.filter((project): project is Project => project !== null)
+  return projects
+    .filter((project): project is Project => project !== null)
+    .sort((a, b) => compareProjectSlugs(a.metadata.slug, b.metadata.slug))
 }
