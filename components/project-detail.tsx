@@ -113,14 +113,14 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
             {metadata.cover && (
               <div className="lg:w-1/2">
-                <div className="relative w-full h-64 lg:h-80">
+                <div className="relative w-full h-64 lg:h-80 bg-cover-matte rounded-lg overflow-hidden">
                   <Image
                     src={coverSrc}
                     alt={metadata.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
-                    className="object-cover rounded-lg"
+                    className="object-cover"
                     onError={() => setCoverSrc("/abstract-project-cover.png")}
                   />
                 </div>

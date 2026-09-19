@@ -42,7 +42,7 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                   return (
                     <li key={metadata.slug} className="group border border-rule rounded-[2px] overflow-hidden flex flex-col">
                       <Link href={`/projects/${metadata.slug}`} className="block" tabIndex={-1} aria-hidden="true">
-                        <div className="relative w-full aspect-[16/10] bg-cream">
+                        <div className="relative w-full aspect-[16/10] bg-cover-matte">
                           <Image
                             src={metadata.cover || "/project-thumbnail.png"}
                             alt=""

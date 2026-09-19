@@ -45,15 +45,19 @@
   --measure: 65ch;
 
   /*
-    Two tokens that do NOT invert with the theme. The contact block and the
-    footer are dark by design, in both modes; if they flipped with `--ink` and
-    `--paper` the lime labels would land on a light background, which is the
-    one pair the palette forbids (1.56 measured). Caught on 2026-09-18 by
-    screenshotting dark mode, which is exactly the check the old dead `.dark`
-    block never got.
+    Tokens that do NOT invert with the theme.
+    `--surface-dark` / `--on-dark`: the contact block and the footer are dark
+    by design in both modes; if they flipped with `--ink` and `--paper` the
+    lime labels would land on a light background, which is the one pair the
+    palette forbids (1.56 measured). Caught on 2026-09-18 by screenshotting
+    dark mode, which is exactly the check the old dead `.dark` block never got.
+    `--cover-matte`: behind transparent PNG covers. Cream in light and the
+    dark navy stand-in for cream made product photos look tinted; Nicolas
+    asked for white in both modes on 2026-09-18.
   */
   --surface-dark: #0e1417;
   --on-dark: #ffffff;
+  --cover-matte: #ffffff;
 
   /* ── The shadcn semantic tokens, mapped onto the palette above ─────────── */
   --background: var(--paper);
@@ -112,6 +116,7 @@
   --color-rule: var(--rule);
   --color-surface-dark: var(--surface-dark);
   --color-on-dark: var(--on-dark);
+  --color-cover-matte: var(--cover-matte);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
