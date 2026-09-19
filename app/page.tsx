@@ -5,7 +5,9 @@ import { SpeakingCarousel } from "@/components/speaking-carousel"
 import { ProjectsList } from "@/components/projects-list"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { PersonJsonLd } from "@/components/structured-data"
 import { getAllProjects } from "@/lib/github"
+import { SITE_DESCRIPTION } from "@/lib/site"
 
 /**
  * The projects are fetched here, on the server, so they ship inside the HTML.
@@ -15,7 +17,8 @@ export default async function Home() {
   const projects = await getAllProjects()
 
   return (
-    <main className="min-h-screen">
+    <main id="main" className="min-h-screen">
+      <PersonJsonLd description={SITE_DESCRIPTION} />
       <Header />
       <div className="pt-16">
         <Hero />

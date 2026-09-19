@@ -305,3 +305,22 @@
   padding-bottom: 0.5714286em;
   padding-left: 0.5714286em;
 }
+
+/*
+  The navigation is plain anchors now, so the smooth scroll lives here — and it
+  stops for anyone who asked the system for less motion. `scroll-margin-top`
+  clears the 4rem fixed header, which otherwise covers each section heading.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}

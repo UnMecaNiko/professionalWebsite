@@ -1,36 +1,27 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, ArrowDown } from "lucide-react"
+import Image from "next/image"
 import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
   const { translations } = useLanguage()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
-  }
 
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/30 to-primary/5"
     >
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[url('/abstract-cloud-computing-network-pattern.png')] opacity-5"></div>
-
       <div className="container mx-auto px-4 text-center relative z-10">
         {/* Profile image */}
         <div className="mb-8">
-          <img
+          <Image
             src="/nicolas-profile.jpg"
             alt="Nicolas Velasquez Lopez"
+            width={192}
+            height={192}
+            priority
             className="w-48 h-48 rounded-full mx-auto border-4 border-primary/20 shadow-2xl object-cover"
           />
         </div>
@@ -46,27 +37,21 @@ export function Hero() {
         <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">{translations.hero.subtitle}</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 cursor-pointer"
-            onClick={() =>
-              window.open(
-                "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
-                "_blank",
-              )
-            }
-          >
-            <MessageCircle className="mr-2 h-5 w-5" />
-            {translations.contact.whatsapp}
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+            <a
+              href="https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+              {translations.contact.whatsapp}
+            </a>
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="cursor-pointer bg-transparent"
-            onClick={() => scrollToSection("projects")}
-          >
-            {translations.hero.cta}
-            <ArrowDown className="ml-2 h-5 w-5" />
+          <Button asChild variant="outline" size="lg" className="bg-transparent">
+            <a href="#projects">
+              {translations.hero.cta}
+              <ArrowDown className="ml-2 h-5 w-5" aria-hidden="true" />
+            </a>
           </Button>
         </div>
 

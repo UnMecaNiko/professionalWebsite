@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ExternalLink, Github, Calendar, Users, FileText, Linkedin } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
 import type { Project, ProjectLink } from "@/lib/github"
 import { formatYearRange } from "@/lib/format"
 import { useLanguage } from "@/contexts/language-context"
@@ -33,6 +35,8 @@ interface ProjectDetailProps {
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
   const { metadata, content } = project
+  /** The cover lives in the content repository's bucket; if it 404s, fall back. */
+  const [coverSrc, setCoverSrc] = useState(metadata.cover)
   const { translations } = useLanguage()
   const t = translations.project
 
@@ -110,15 +114,17 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
             {metadata.cover && (
               <div className="lg:w-1/2">
-                <img
-                  src={metadata.cover}
-                  alt={metadata.title}
-                  className="w-full h-64 lg:h-80 object-cover rounded-lg"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement
-                    target.src = "/abstract-project-cover.png"
-                  }}
-                />
+                <div className="relative w-full h-64 lg:h-80">
+                  <Image
+                    src={coverSrc}
+                    alt={metadata.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                    className="object-cover rounded-lg"
+                    onError={() => setCoverSrc("/abstract-project-cover.png")}
+                  />
+                </div>
               </div>
             )}
           </div>
@@ -182,12 +188,16 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                     {metadata.gallery.map((image, index) => (
                       <figure key={image.url}>
                         <a href={image.url} target="_blank" rel="noopener noreferrer">
-                          <img
-                            src={image.url}
-                            alt={image.caption || `${metadata.title} — ${index + 1}`}
-                            loading="lazy"
-                            className="w-full h-60 object-cover rounded-lg hover:opacity-90 transition-opacity"
-                          />
+                          <div className="relative w-full h-60">
+                            <Image
+                              src={image.url}
+                              alt={image.caption || `${metadata.title} — ${index + 1}`}
+                              fill
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                              loading="lazy"
+                              className="object-cover rounded-lg hover:opacity-90 transition-opacity"
+                            />
+                          </div>
                         </a>
                         {image.caption && (
                           <figcaption className="mt-2 text-sm text-muted-foreground">{image.caption}</figcaption>

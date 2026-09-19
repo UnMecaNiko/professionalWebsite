@@ -8,6 +8,7 @@ import { useLanguage } from "@/contexts/language-context"
 import type { Project } from "@/lib/github"
 import { formatYearRange } from "@/lib/format"
 import Link from "next/link"
+import Image from "next/image"
 
 export function ProjectsList({ projects }: { projects: Project[] }) {
   const { translations } = useLanguage()
@@ -32,12 +33,13 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
               return (
                 <Card key={metadata.slug} className="overflow-hidden hover:shadow-xl transition-shadow group">
                   <Link href={`/projects/${metadata.slug}`} className="block">
-                    <div className="relative overflow-hidden">
-                      <img
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
                         src={metadata.cover || "/project-thumbnail.png"}
                         alt={metadata.title}
-                        loading="lazy"
-                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       {metadata.categories[0] && (
                         <div className="absolute top-4 left-4">

@@ -4,35 +4,19 @@ import { Button } from "@/components/ui/button"
 import { Linkedin, Github, Youtube, Mail, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
-export function Footer() {
-  const { language, translations } = useLanguage()
+const WHATSAPP_URL =
+  "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo."
+const LINKEDIN_URL = "https://www.linkedin.com/in/unmecaniko/"
 
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://linkedin.com/in/unmecaniko",
-      primary: true,
-    },
-    {
-      name: "GitHub",
-      icon: Github,
-      url: "https://github.com/unmecaniko",
-      primary: false,
-    },
-    {
-      name: "YouTube",
-      icon: Youtube,
-      url: "https://youtube.com/@unmecaniko",
-      primary: false,
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      url: "mailto:unmecaniko@gmail.com",
-      primary: false,
-    },
-  ]
+const socialLinks = [
+  { name: "LinkedIn", icon: Linkedin, url: LINKEDIN_URL, primary: true },
+  { name: "GitHub", icon: Github, url: "https://github.com/UnMecaNiko", primary: false },
+  { name: "YouTube", icon: Youtube, url: "https://www.youtube.com/@unmecaniko", primary: false },
+  { name: "Email", icon: Mail, url: "mailto:unmecaniko@gmail.com", primary: false },
+]
+
+export function Footer() {
+  const { translations } = useLanguage()
 
   return (
     <footer className="bg-primary text-primary-foreground py-16">
@@ -43,15 +27,26 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-4">Nicolas Velasquez Lopez</h3>
             <p className="opacity-90 mb-4">{translations.footer.description}</p>
             <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
+              {/*
+                These were icon-only `<button>` elements with no accessible name
+                and no href: a screen reader announced four buttons called
+                "button", and a crawler saw no outbound links at all.
+              */}
+              {socialLinks.map((social) => (
                 <Button
-                  key={index}
+                  key={social.name}
+                  asChild
                   variant={social.primary ? "secondary" : "ghost"}
                   size="sm"
-                  className={`cursor-pointer ${social.primary ? "" : "text-primary-foreground hover:bg-primary-foreground/10"}`}
-                  onClick={() => window.open(social.url, "_blank")}
+                  className={social.primary ? "" : "text-primary-foreground hover:bg-primary-foreground/10"}
                 >
-                  <social.icon className="h-4 w-4" />
+                  <a
+                    href={social.url}
+                    aria-label={social.name}
+                    {...(social.url.startsWith("mailto:") ? {} : { target: "_blank", rel: "me noopener noreferrer" })}
+                  >
+                    <social.icon className="h-4 w-4" aria-hidden="true" />
+                  </a>
                 </Button>
               ))}
             </div>
@@ -71,26 +66,21 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">{translations.footer.contact.title}</h3>
             <div className="space-y-3">
-              <Button
-                variant="secondary"
-                className="w-full justify-start cursor-pointer"
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
-                    "_blank",
-                  )
-                }
-              >
-                <MessageCircle className="mr-2 h-4 w-4" />
-                WhatsApp
+              <Button asChild variant="secondary" className="w-full justify-start">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
+                  WhatsApp
+                </a>
               </Button>
               <Button
+                asChild
                 variant="ghost"
-                className="w-full justify-start text-primary-foreground hover:bg-primary-foreground/10 cursor-pointer"
-                onClick={() => window.open("https://linkedin.com/in/unmecaniko", "_blank")}
+                className="w-full justify-start text-primary-foreground hover:bg-primary-foreground/10"
               >
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
+                <a href={LINKEDIN_URL} target="_blank" rel="me noopener noreferrer">
+                  <Linkedin className="mr-2 h-4 w-4" aria-hidden="true" />
+                  LinkedIn
+                </a>
               </Button>
             </div>
           </div>

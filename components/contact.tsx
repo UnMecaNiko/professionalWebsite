@@ -26,19 +26,15 @@ export function Contact() {
                   <p className="opacity-90">Quick response guaranteed</p>
                 </div>
               </div>
-              <Button
-                variant="secondary"
-                size="lg"
-                className="w-full cursor-pointer"
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
-                    "_blank",
-                  )
-                }
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                {translations.contact.whatsapp}
+              <Button asChild variant="secondary" size="lg" className="w-full">
+                <a
+                  href="https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+                  {translations.contact.whatsapp}
+                </a>
               </Button>
             </CardContent>
           </Card>

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import { getProject, getAllProjects } from "@/lib/github"
 import { ProjectDetail } from "@/components/project-detail"
+import { ProjectJsonLd } from "@/components/structured-data"
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>
@@ -24,11 +25,24 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   }
 
   return {
-    title: `${project.metadata.title} - Nicolas Velasquez Lopez`,
-    description: project.metadata.description,
+    // `seo_title` and `seo_description` are written for all eight projects and
+    // were never read; the plain title and description are the fallback.
+    title: project.metadata.seoTitle ?? project.metadata.title,
+    description: project.metadata.seoDescription ?? project.metadata.description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
     openGraph: {
-      title: project.metadata.title,
-      description: project.metadata.description,
+      type: "article",
+      url: `/projects/${slug}`,
+      title: project.metadata.seoTitle ?? project.metadata.title,
+      description: project.metadata.seoDescription ?? project.metadata.description,
+      images: project.metadata.cover ? [project.metadata.cover] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.metadata.seoTitle ?? project.metadata.title,
+      description: project.metadata.seoDescription ?? project.metadata.description,
       images: project.metadata.cover ? [project.metadata.cover] : [],
     },
   }
@@ -42,5 +56,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound()
   }
 
-  return <ProjectDetail project={project} />
+  return (
+    <>
+      <ProjectJsonLd project={project} />
+      <ProjectDetail project={project} />
+    </>
+  )
 }

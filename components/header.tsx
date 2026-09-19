@@ -5,125 +5,108 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, Globe } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
+const WHATSAPP_URL =
+  "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo."
+
+/**
+ * The navigation is made of real anchors. It used to be `<button>` plus
+ * `scrollIntoView`, which a crawler cannot follow and a keyboard user cannot
+ * open in a new tab. The smooth scroll now lives in CSS.
+ */
+const SECTIONS = ["about", "projects", "contact"] as const
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { language, setLanguage, translations } = useLanguage()
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
-  }
-
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "es" : "en")
-  }
+  const toggleLanguage = () => setLanguage(language === "en" ? "es" : "en")
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo/Name */}
           <div className="flex-shrink-0">
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="text-xl font-bold text-primary hover:text-primary/80 transition-colors cursor-pointer"
+            <a
+              href="#hero"
+              aria-label={translations.nav.home}
+              className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
             >
               {translations.name}
-            </button>
+            </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
-            >
-              {translations.nav.about}
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
-            >
-              {translations.nav.projects}
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
-            >
-              {translations.nav.contact}
-            </button>
+          <nav className="hidden md:flex items-center space-x-8" aria-label={translations.nav.home}>
+            {SECTIONS.map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              >
+                {translations.nav[section]}
+              </a>
+            ))}
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
+              aria-label={translations.nav.toggleLanguage}
               className="text-foreground/80 hover:text-primary transition-colors"
             >
-              <Globe className="h-4 w-4 mr-2" />
+              <Globe className="h-4 w-4 mr-2" aria-hidden="true" />
               {language === "en" ? "ES" : "EN"}
             </Button>
-            <Button
-              onClick={() =>
-                window.open(
-                  "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
-                  "_blank",
-                )
-              }
-              className="bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
-            >
-              {translations.nav.workTogether}
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                {translations.nav.workTogether}
+              </a>
             </Button>
           </nav>
 
-          {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button variant="ghost" size="sm" onClick={toggleLanguage} className="text-foreground">
-              <Globe className="h-4 w-4" />
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              aria-label={translations.nav.toggleLanguage}
+              className="text-foreground"
+            >
+              <Globe className="h-4 w-4" aria-hidden="true" />
             </Button>
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-foreground">
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? translations.nav.closeMenu : translations.nav.openMenu}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              className="text-foreground"
+            >
+              {isMenuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium cursor-pointer"
-              >
-                {translations.nav.about}
-              </button>
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium cursor-pointer"
-              >
-                {translations.nav.projects}
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium cursor-pointer"
-              >
-                {translations.nav.contact}
-              </button>
-              <div className="px-3 py-2">
-                <Button
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo.",
-                      "_blank",
-                    )
-                  }
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
+          <div className="md:hidden" id="mobile-menu">
+            <nav className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
+              {SECTIONS.map((section) => (
+                <a
+                  key={section}
+                  href={`#${section}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
                 >
-                  {translations.nav.workTogether}
+                  {translations.nav[section]}
+                </a>
+              ))}
+              <div className="px-3 py-2">
+                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    {translations.nav.workTogether}
+                  </a>
                 </Button>
               </div>
-            </div>
+            </nav>
           </div>
         )}
       </div>

@@ -20,6 +20,10 @@ const translations = {
       projects: "Projects",
       contact: "Contact",
       workTogether: "Let's Work Together",
+      home: "Back to the top",
+      toggleLanguage: "Cambiar a español",
+      openMenu: "Open the menu",
+      closeMenu: "Close the menu",
     },
 
     // Hero
@@ -58,6 +62,12 @@ const translations = {
       title: "Speaking & Education",
       description:
         "Sharing knowledge through conferences, workshops, and technical presentations across Latin America and beyond.",
+      previous: "Previous photo",
+      next: "Next photo",
+      goTo: "Go to photo",
+      pause: "Pause the slideshow",
+      play: "Play the slideshow",
+      region: "Speaking photos",
     },
 
     // Projects
@@ -137,6 +147,10 @@ const translations = {
       projects: "Proyectos",
       contact: "Contacto",
       workTogether: "Trabajemos Juntos",
+      home: "Volver al inicio",
+      toggleLanguage: "Switch to English",
+      openMenu: "Abrir el menú",
+      closeMenu: "Cerrar el menú",
     },
 
     // Hero
@@ -175,6 +189,12 @@ const translations = {
       title: "Conferencias y Educación",
       description:
         "Compartiendo conocimiento a través de conferencias, talleres y presentaciones técnicas en Latinoamérica y más allá.",
+      previous: "Foto anterior",
+      next: "Foto siguiente",
+      goTo: "Ir a la foto",
+      pause: "Pausar la presentación",
+      play: "Reanudar la presentación",
+      region: "Fotos de conferencias",
     },
 
     // Projects

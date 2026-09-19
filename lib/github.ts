@@ -51,6 +51,10 @@ export interface ProjectMetadata {
   metrics: ImpactMetric[]
   lastUpdated?: string
   featured?: boolean
+  /** Normalized from `seo_title`. Written for every project and never read. */
+  seoTitle?: string
+  /** Normalized from `seo_description`. */
+  seoDescription?: string
 }
 
 export interface Project {
@@ -137,6 +141,8 @@ function normalize(frontmatter: Record<string, any>, slug: string): ProjectMetad
     metrics: toMetrics(impact?.metrics),
     lastUpdated: typeof frontmatter.last_updated === "string" ? frontmatter.last_updated : undefined,
     featured: frontmatter.featured === true,
+    seoTitle: typeof frontmatter.seo_title === "string" ? frontmatter.seo_title : undefined,
+    seoDescription: typeof frontmatter.seo_description === "string" ? frontmatter.seo_description : undefined,
   }
 }
 
@@ -176,6 +182,9 @@ export async function getProject(slug: string): Promise<Project | null> {
     )
 
     if (!response.ok) {
+      // A silent null here drops the project from the listing AND from
+      // generateStaticParams, with nothing in the build log to explain it.
+      console.error(`GitHub API ${response.status} for project ${slug}`)
       return null
     }
 
