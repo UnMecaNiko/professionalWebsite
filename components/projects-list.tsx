@@ -37,7 +37,7 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                         src={metadata.cover || "/project-thumbnail.png"}
                         alt={metadata.title}
                         loading="lazy"
-                        className="w-full h-64 object-contain bg-transparent group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       {metadata.categories[0] && (
                         <div className="absolute top-4 left-4">
