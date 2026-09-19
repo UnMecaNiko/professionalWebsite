@@ -45,6 +45,12 @@ export interface ProjectMetadata {
   links: ProjectLink[]
   /** Normalized from `links.demo`. */
   website?: string
+  /**
+   * Normalized from `links.site`. When set, the homepage card (cover, title,
+   * and the single action) goes here instead of `/projects/<slug>`. The
+   * write-up still exists as the public knowledge base.
+   */
+  site?: string
   /** Normalized from `links.repo`. */
   github?: string
   highlights: string[]
@@ -136,6 +142,7 @@ function normalize(frontmatter: Record<string, any>, slug: string): ProjectMetad
     videos: toObjectArray<Video>(frontmatter.videos),
     links,
     website: links.find((link) => link.key === "demo")?.url,
+    site: links.find((link) => link.key === "site")?.url,
     github: links.find((link) => link.key === "repo")?.url,
     highlights: toStringArray(impact?.highlights),
     metrics: toMetrics(impact?.metrics),

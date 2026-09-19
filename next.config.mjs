@@ -12,6 +12,10 @@ const nextConfig = {
         hostname: "ykvgpcusdnzyzsqjmksr.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
+      {
+        protocol: "https",
+        hostname: "presalesagent.unmecaniko.com",
+      },
     ],
   },
 }

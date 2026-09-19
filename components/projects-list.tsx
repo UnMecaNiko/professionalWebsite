@@ -17,7 +17,44 @@ import { formatYearRange } from "@/lib/format"
  * a recruiter needs. One metric as the hook; the rest belongs in the page.
  * One button: "View Details" and "Code" used to compete at equal weight and
  * neither won.
+ *
+ * If `links.site` is set, cover, title and the button all go there. The
+ * write-up at `/projects/<slug>` still exists as the public knowledge base;
+ * it is just not the card's destination.
  */
+function cardHref(slug: string, site?: string) {
+  return site ?? `/projects/${slug}`
+}
+
+function isExternalHref(href: string) {
+  return /^https?:\/\//.test(href)
+}
+
+function ProjectCardLink({
+  href,
+  className,
+  children,
+  ...rest
+}: {
+  href: string
+  className?: string
+  children: React.ReactNode
+} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">) {
+  if (isExternalHref(href)) {
+    return (
+      <a href={href} className={className} {...rest}>
+        {children}
+      </a>
+    )
+  }
+
+  return (
+    <Link href={href} className={className} {...rest}>
+      {children}
+    </Link>
+  )
+}
+
 export function ProjectsList({ projects }: { projects: Project[] }) {
   const { translations } = useLanguage()
 
@@ -38,10 +75,14 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                   const { metadata } = project
                   const years = formatYearRange(metadata.startDate, metadata.endDate, translations.projects.ongoing)
                   const headlineMetric = metadata.metrics[0]
+                  const href = cardHref(metadata.slug, metadata.site)
+                  const actionLabel = metadata.site
+                    ? translations.projects.visitSite
+                    : translations.projects.readCase
 
                   return (
                     <li key={metadata.slug} className="group border border-rule rounded-[2px] overflow-hidden flex flex-col">
-                      <Link href={`/projects/${metadata.slug}`} className="block" tabIndex={-1} aria-hidden="true">
+                      <ProjectCardLink href={href} className="block" tabIndex={-1} aria-hidden="true">
                         <div className="relative w-full aspect-[16/10] bg-cover-matte">
                           <Image
                             src={metadata.cover || "/project-thumbnail.png"}
@@ -51,7 +92,7 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                             className="object-cover"
                           />
                         </div>
-                      </Link>
+                      </ProjectCardLink>
 
                       <div className="flex flex-col flex-1 p-6">
                         {metadata.categories[0] && (
@@ -59,9 +100,9 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                         )}
 
                         <h3 className="text-h3 text-ink">
-                          <Link href={`/projects/${metadata.slug}`} className="hover:text-blue transition-colors">
+                          <ProjectCardLink href={href} className="hover:text-blue transition-colors">
                             {metadata.title}
-                          </Link>
+                          </ProjectCardLink>
                         </h3>
 
                         <p className="font-mono text-small tabular text-slate mt-2">
@@ -81,13 +122,13 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                         )}
 
                         <p className="mt-auto pt-6">
-                          <Link
-                            href={`/projects/${metadata.slug}`}
+                          <ProjectCardLink
+                            href={href}
                             className="inline-flex items-center font-bold text-blue hover:underline underline-offset-4"
                           >
-                            {translations.projects.readCase}
+                            {actionLabel}
                             <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                          </Link>
+                          </ProjectCardLink>
                         </p>
                       </div>
                     </li>
