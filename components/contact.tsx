@@ -1,67 +1,68 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { MessageCircle } from "lucide-react"
+import { Linkedin, Mail, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { EMAIL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/site"
 
+/**
+ * Email first, LinkedIn second, WhatsApp third. The block sits on ink, and
+ * its labels are the only lime in the whole page: the colour is unreadable on
+ * light backgrounds (1.56 on paper, measured) and pulls the palette towards
+ * "startup". It appears once, which is why it registers.
+ */
 export function Contact() {
   const { translations } = useLanguage()
+  const t = translations.contact
+
+  const channels = [
+    { label: t.emailLabel, icon: Mail, value: EMAIL, href: `mailto:${EMAIL}`, external: false },
+    { label: t.linkedinLabel, icon: Linkedin, value: "/in/unmecaniko", href: LINKEDIN_URL, external: true },
+    { label: t.whatsappLabel, icon: MessageCircle, value: "+57 320 408 1631", href: WHATSAPP_URL, external: true },
+  ]
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{translations.contact.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{translations.contact.subtitle}</p>
-        </div>
+    <section id="contact" className="bg-surface-dark text-on-dark">
+      <div className="container mx-auto px-4 py-12 md:py-[4.5rem]">
+        <div className="grid grid-cols-1 lg:grid-cols-[190px_1fr] gap-8">
+          <h2 className="label text-lime pt-1">{translations.nav.contact}</h2>
 
-        <div className="max-w-2xl mx-auto">
-          <Card className="bg-primary text-primary-foreground mb-8">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <MessageCircle className="h-10 w-10" />
-                <div>
-                  <h3 className="text-2xl font-semibold">WhatsApp</h3>
-                  <p className="opacity-90">Quick response guaranteed</p>
-                </div>
-              </div>
-              <Button asChild variant="secondary" size="lg" className="w-full">
-                <a
-                  href="https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                  {translations.contact.whatsapp}
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
+          <div>
+            <p className="measure text-h2 text-on-dark">{t.title}</p>
+            <p className="measure text-body text-on-dark/75 mt-4">{t.subtitle}</p>
 
-          <Card>
-            <CardContent className="p-8">
-              <h3 className="font-semibold mb-6 text-xl">{translations.contact.whyWork}</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  {translations.contact.experienceDesc}
+            <ul className="mt-12 border-t border-on-dark/20">
+              {channels.map((channel) => (
+                <li key={channel.label} className="border-b border-on-dark/20">
+                  <a
+                    href={channel.href}
+                    {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="grid grid-cols-[24px_1fr] sm:grid-cols-[24px_110px_1fr] gap-x-4 gap-y-1 items-center py-4 group"
+                  >
+                    <channel.icon className="h-5 w-5 text-lime" aria-hidden="true" />
+                    <span className="label text-lime">{channel.label}</span>
+                    <span className="col-start-2 sm:col-start-3 text-h3 text-on-dark group-hover:underline underline-offset-4 break-all">
+                      {channel.value}
+                    </span>
+                  </a>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  {translations.contact.educationDesc}
+              ))}
+            </ul>
+
+            <h3 className="label text-lime mt-12 pb-2 border-b border-on-dark/20">{t.whyWork}</h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+              {[
+                { title: t.experience, description: t.experienceDesc },
+                { title: t.education, description: t.educationDesc },
+                { title: t.innovation, description: t.innovationDesc },
+                { title: t.responsibleDesign, description: t.responsibleDesignDesc },
+              ].map((item) => (
+                <li key={item.title} className="py-4 border-b border-on-dark/20">
+                  <h4 className="text-body font-bold text-on-dark">{item.title}</h4>
+                  <p className="text-small text-on-dark/75 mt-1">{item.description}</p>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  {translations.contact.innovationDesc}
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  {translations.contact.responsibleDesignDesc}
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

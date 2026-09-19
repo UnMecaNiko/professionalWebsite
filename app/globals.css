@@ -3,82 +3,116 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+  ── Magia Roja Blue ─────────────────────────────────────────────────────────
+  The token layer. Roughly thirty lines that decide what the site looks like,
+  so that in three months there are not seven type sizes picked by eye again.
+  It is deliberately not a design system: a site of eight pages maintained by
+  one person does not amortise one.
+
+  Every contrast below is measured, not estimated. The forbidden pairs are
+  forbidden because they were measured too: lime on paper is 1.56, lime on
+  cream is 1.31 — unreadable. Lime lives on ink (11.89) and nowhere else.
+*/
 :root {
-  /* Actualizando paleta de colores con azul marino como principal */
-  --background: oklch(1 0 0); /* Blanco puro */
-  --foreground: oklch(0.2 0.05 240); /* Azul marino oscuro para texto */
-  --card: oklch(0.98 0.01 240); /* Gris muy claro con tinte azul */
-  --card-foreground: oklch(0.3 0.03 240); /* Gris oscuro azulado */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.05 240);
-  --primary: oklch(0.2 0.05 240); /* Azul marino principal */
-  --primary-foreground: oklch(0.98 0.01 240);
-  --secondary: oklch(0.55 0.15 240); /* Azul brillante para CTAs */
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0.01 240); /* Gris claro con tinte azul */
-  --muted-foreground: oklch(0.45 0.03 240);
-  --accent: oklch(0.55 0.15 240); /* Azul brillante para acentos */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.01 240); /* Bordes con tinte azul sutil */
-  --input: oklch(0.98 0.01 240);
-  --ring: oklch(0.55 0.15 240 / 0.5); /* Ring azul para focus */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.01 240);
-  --sidebar-foreground: oklch(0.2 0.05 240);
-  --sidebar-primary: oklch(0.2 0.05 240);
-  --sidebar-primary-foreground: oklch(0.98 0.01 240);
-  --sidebar-accent: oklch(0.96 0.01 240);
-  --sidebar-accent-foreground: oklch(0.2 0.05 240);
-  --sidebar-border: oklch(0.9 0.01 240);
-  --sidebar-ring: oklch(0.55 0.15 240 / 0.5);
+  --paper: #ffffff; /* main background */
+  --ink: #0e1417; /* headings and body — 18.57 on paper, 15.56 on cream */
+  --blue: #072fb3; /* the single accent — 10.16 on paper, 8.52 on cream */
+  --slate: #45585f; /* secondary text — 7.46 on paper, 6.26 on cream */
+  --cream: #f8eac9; /* alternating section background. NEVER text */
+  --lime: #bbdb69; /* restricted: on ink only */
+  --rule: #d8d3c4; /* 1px rules */
+
+  /* Type scale: seven steps, nothing in between. */
+  --step-display: 3.5rem; /* 56 */
+  --step-h1: 2.5rem; /* 40 */
+  --step-h2: 1.75rem; /* 28 */
+  --step-h3: 1.25rem; /* 20 */
+  --step-body: 1rem; /* 16 */
+  --step-small: 0.875rem; /* 14 */
+  --step-label: 0.6875rem; /* 11, mono, small caps */
+
+  /* Spacing in multiples of 8. */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-9: 4.5rem;
+  --space-12: 6rem;
+
+  --radius: 2px;
+  --measure: 65ch;
+
+  /*
+    Two tokens that do NOT invert with the theme. The contact block and the
+    footer are dark by design, in both modes; if they flipped with `--ink` and
+    `--paper` the lime labels would land on a light background, which is the
+    one pair the palette forbids (1.56 measured). Caught on 2026-09-18 by
+    screenshotting dark mode, which is exactly the check the old dead `.dark`
+    block never got.
+  */
+  --surface-dark: #0e1417;
+  --on-dark: #ffffff;
+
+  /* ── The shadcn semantic tokens, mapped onto the palette above ─────────── */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--blue);
+  --primary-foreground: var(--paper);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--ink);
+  --muted: var(--cream);
+  --muted-foreground: var(--slate);
+  --accent: var(--blue);
+  --accent-foreground: var(--paper);
+  --destructive: #a1160f;
+  --destructive-foreground: var(--paper);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--blue);
 }
 
+/*
+  Dark mode stopped being dead code on 2026-09-18. The block that lived here
+  for a year had never been executed, so nobody had ever looked at it. These
+  values were measured before being written: ink 16.83, slate 8.93 and blue
+  8.97 on the dark background, lime 11.89.
+*/
 .dark {
-  /* Modo oscuro con azul marino */
-  --background: oklch(0.1 0.02 240); /* Azul muy oscuro */
-  --foreground: oklch(0.95 0.01 240); /* Blanco azulado */
-  --card: oklch(0.15 0.02 240);
-  --card-foreground: oklch(0.95 0.01 240);
-  --popover: oklch(0.1 0.02 240);
-  --popover-foreground: oklch(0.95 0.01 240);
-  --primary: oklch(0.7 0.15 240); /* Azul más claro en modo oscuro */
-  --primary-foreground: oklch(0.1 0.02 240);
-  --secondary: oklch(0.25 0.05 240);
-  --secondary-foreground: oklch(0.95 0.01 240);
-  --muted: oklch(0.2 0.02 240);
-  --muted-foreground: oklch(0.7 0.02 240);
-  --accent: oklch(0.7 0.15 240);
-  --accent-foreground: oklch(0.1 0.02 240);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.95 0.01 240);
-  --border: oklch(0.25 0.02 240);
-  --input: oklch(0.2 0.02 240);
-  --ring: oklch(0.7 0.15 240 / 0.5);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.15 0.02 240);
-  --sidebar-foreground: oklch(0.95 0.01 240);
-  --sidebar-primary: oklch(0.7 0.15 240);
-  --sidebar-primary-foreground: oklch(0.1 0.02 240);
-  --sidebar-accent: oklch(0.2 0.02 240);
-  --sidebar-accent-foreground: oklch(0.95 0.01 240);
-  --sidebar-border: oklch(0.25 0.02 240);
-  --sidebar-ring: oklch(0.7 0.15 240 / 0.5);
+  --paper: #0e1417;
+  --cream: #171f23;
+  --ink: #f2f4f5;
+  --slate: #a9b6bc;
+  --blue: #8fb4ff;
+  --lime: #bbdb69;
+  --rule: #2b3439;
+
+  --primary-foreground: #0e1417;
+  --accent-foreground: #0e1417;
+  --secondary-foreground: var(--ink);
+  --destructive: #ff8a80;
+  --destructive-foreground: #0e1417;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-blue: var(--blue);
+  --color-slate: var(--slate);
+  --color-cream: var(--cream);
+  --color-lime: var(--lime);
+  --color-rule: var(--rule);
+  --color-surface-dark: var(--surface-dark);
+  --color-on-dark: var(--on-dark);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -98,23 +132,37 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+
+  /* Negative tracking from 28px up is what separates large type that was
+     designed from large type that was defaulted. */
+  --text-display: var(--step-display);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.04em;
+  --text-display--font-weight: 800;
+  --text-h1: var(--step-h1);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h1--font-weight: 700;
+  --text-h2: var(--step-h2);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h2--font-weight: 700;
+  --text-h3: var(--step-h3);
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 700;
+  --text-body: var(--step-body);
+  --text-body--line-height: 1.6;
+  --text-small: var(--step-small);
+  --text-small--line-height: 1.5;
+  --text-label: var(--step-label);
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.13em;
+
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-xl: var(--radius);
 }
 
 @layer base {
@@ -123,17 +171,54 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-size: var(--step-body);
+    line-height: 1.6;
   }
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+@utility measure {
+  max-width: var(--measure);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+  The navigation is plain anchors now, so the smooth scroll lives here — and it
+  stops for anyone who asked the system for less motion. `scroll-margin-top`
+  clears the 4rem fixed header, which otherwise covers each section heading.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
 }
 
 /* Agregando estilos para contenido Markdown */
 .prose {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   max-width: none;
 }
 
 .prose h1 {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 800;
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -142,7 +227,7 @@
 }
 
 .prose h2 {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -151,7 +236,7 @@
 }
 
 .prose h3 {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -166,18 +251,18 @@
 }
 
 .prose a {
-  color: hsl(var(--primary));
+  color: var(--primary);
   text-decoration: underline;
   font-weight: 500;
 }
 
 .prose a:hover {
-  color: hsl(var(--primary));
+  color: var(--primary);
   opacity: 0.8;
 }
 
 .prose strong {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 600;
 }
 
@@ -208,15 +293,15 @@
 }
 
 .prose li::marker {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .prose blockquote {
   font-weight: 500;
   font-style: italic;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   border-left-width: 0.25rem;
-  border-left-color: hsl(var(--border));
+  border-left-color: var(--border);
   quotes: "\201C" "\201D" "\2018" "\2019";
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
@@ -224,17 +309,17 @@
 }
 
 .prose code {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 600;
   font-size: 0.875rem;
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
 }
 
 .prose pre {
-  color: hsl(var(--foreground));
-  background-color: hsl(var(--muted));
+  color: var(--foreground);
+  background-color: var(--muted);
   overflow-x: auto;
   font-weight: 400;
   font-size: 0.875rem;
@@ -264,7 +349,7 @@
 }
 
 .prose hr {
-  border-color: hsl(var(--border));
+  border-color: var(--border);
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -281,11 +366,11 @@
 
 .prose thead {
   border-bottom-width: 1px;
-  border-bottom-color: hsl(var(--border));
+  border-bottom-color: var(--border);
 }
 
 .prose thead th {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 600;
   vertical-align: bottom;
   padding-right: 0.5714286em;
@@ -295,7 +380,7 @@
 
 .prose tbody tr {
   border-bottom-width: 1px;
-  border-bottom-color: hsl(var(--border));
+  border-bottom-color: var(--border);
 }
 
 .prose tbody td {

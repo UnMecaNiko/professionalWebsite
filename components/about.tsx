@@ -1,84 +1,65 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Cloud, Bot, GraduationCap, Cpu } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
+/**
+ * Composition rule 1: a Card means something you can click. These four areas
+ * are not clickable, so they lost their boxes and became rows separated by a
+ * 1px rule. When everything sits in a shadowed container, nothing has
+ * hierarchy and the page reads like an admin panel.
+ */
 export function About() {
   const { translations } = useLanguage()
+  const t = translations.about
 
   const expertise = [
-    {
-      icon: Cloud,
-      title: translations.about.cloud,
-      description: translations.about.cloudDesc,
-    },
-    {
-      icon: Bot,
-      title: translations.about.ai,
-      description: translations.about.aiDesc,
-    },
-    {
-      icon: Cpu,
-      title: translations.about.robotics,
-      description: translations.about.roboticsDesc,
-    },
-    {
-      icon: GraduationCap,
-      title: translations.about.education,
-      description: translations.about.educationDesc,
-    },
+    { icon: Cloud, title: t.cloud, description: t.cloudDesc },
+    { icon: Bot, title: t.ai, description: t.aiDesc },
+    { icon: Cpu, title: t.robotics, description: t.roboticsDesc },
+    { icon: GraduationCap, title: t.education, description: t.educationDesc },
+  ]
+
+  const roles = [
+    { title: t.solutionsArchitect, description: t.solutionsArchitectDesc },
+    { title: t.aiDeveloper, description: t.aiDeveloperDesc },
+    { title: t.technicalEducator, description: t.technicalEducatorDesc },
   ]
 
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{translations.about.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-justify">{translations.about.description}</p>
-        </div>
+    <section id="about" className="bg-cream border-b border-rule">
+      <div className="container mx-auto px-4 py-12 md:py-[4.5rem]">
+        <div className="grid grid-cols-1 lg:grid-cols-[190px_1fr] gap-8">
+          <h2 className="label text-blue pt-1">{t.title}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {expertise.map((item, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-6">{translations.about.expertise}</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 className="font-semibold">{translations.about.solutionsArchitect}</h4>
-                  <p className="text-muted-foreground">{translations.about.solutionsArchitectDesc}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 className="font-semibold">{translations.about.aiDeveloper}</h4>
-                  <p className="text-muted-foreground">{translations.about.aiDeveloperDesc}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 className="font-semibold">{translations.about.technicalEducator}</h4>
-                  <p className="text-muted-foreground">{translations.about.technicalEducatorDesc}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            {/* Justified text opens rivers of white space without hyphenation;
+                it was also set on a 3xl measure, which made it worse. */}
+            <p className="measure text-h3 font-normal text-ink">{t.description}</p>
 
-          
+            <h3 className="label text-slate mt-12 mb-0 pb-2 border-b border-ink/25">{t.expertise}</h3>
+            <ul>
+              {expertise.map((item) => (
+                <li
+                  key={item.title}
+                  className="grid grid-cols-[24px_1fr] sm:grid-cols-[24px_190px_1fr] gap-x-4 gap-y-1 py-4 border-b border-rule"
+                >
+                  <item.icon className="h-5 w-5 text-blue mt-1" aria-hidden="true" />
+                  <h4 className="text-h3 text-ink">{item.title}</h4>
+                  <p className="col-start-2 sm:col-start-3 measure text-small text-slate">{item.description}</p>
+                </li>
+              ))}
+            </ul>
+
+            <ul className="mt-12">
+              {roles.map((role) => (
+                <li key={role.title} className="grid grid-cols-1 sm:grid-cols-[190px_1fr] gap-x-4 py-4 border-b border-rule">
+                  <h4 className="text-body font-bold text-ink">{role.title}</h4>
+                  <p className="measure text-small text-slate">{role.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

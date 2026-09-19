@@ -1,7 +1,8 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
-import { SpeakingCarousel } from "@/components/speaking-carousel"
+import { Career } from "@/components/career"
+import { Speaking } from "@/components/speaking"
 import { ProjectsList } from "@/components/projects-list"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -21,10 +22,13 @@ export default async function Home() {
       <PersonJsonLd description={SITE_DESCRIPTION} />
       <Header />
       <div className="pt-16">
-        <Hero />
+        {/* The project count is passed in rather than written down: a number
+            on the page that can drift from reality is a number that will. */}
+        <Hero projectCount={projects.length} />
         <About />
-        <SpeakingCarousel />
         <ProjectsList projects={projects} />
+        <Career />
+        <Speaking />
         <Contact />
         <Footer />
       </div>

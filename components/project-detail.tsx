@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ExternalLink, Github, Calendar, Users, FileText, Linkedin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -44,9 +43,9 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
   const statusLabel = t.status[metadata.status as keyof typeof t.status] ?? metadata.status
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       {/* Header */}
-      <div className="border-b">
+      <div className="border-b border-rule">
         <div className="container mx-auto px-4 py-6">
           <Link href="/#projects">
             <Button variant="ghost" size="sm" className="mb-4 cursor-pointer">
@@ -66,16 +65,16 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 {statusLabel && <Badge variant="outline">{statusLabel}</Badge>}
               </div>
 
-              <h1 className="text-4xl font-bold mb-3">{metadata.title}</h1>
+              <h1 className="text-h1 text-ink mb-3">{metadata.title}</h1>
 
               {/* Role first: it is what a recruiter reads before anything else. */}
               {metadata.role.length > 0 && (
-                <p className="text-lg font-medium text-accent mb-3">{metadata.role.join(" · ")}</p>
+                <p className="text-h3 text-blue mb-3">{metadata.role.join(" · ")}</p>
               )}
 
-              <p className="text-xl text-muted-foreground mb-6">{metadata.description}</p>
+              <p className="measure text-h3 font-normal text-slate mb-6">{metadata.description}</p>
 
-              <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap gap-4 font-mono text-small tabular text-slate mb-6">
                 {years && (
                   <div className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
@@ -139,9 +138,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             {/* Impact: written in the front-matter of every project and, until
                 now, never rendered anywhere. */}
             {(metadata.highlights.length > 0 || metadata.metrics.length > 0) && (
-              <Card>
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">{t.impact}</h2>
+              <section className="py-12 border-b border-rule">
+                  <h2 className="text-h2 text-ink mb-6">{t.impact}</h2>
 
                   {metadata.metrics.length > 0 && (
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
@@ -167,23 +165,19 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       ))}
                     </ul>
                   )}
-                </CardContent>
-              </Card>
+            </section>
             )}
 
-            <Card>
-              <CardContent className="p-8">
-                <div className="prose max-w-none">
+            <section className="py-12 border-b border-rule">
+                <div className="prose measure">
                   <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSanitize]}>{content}</ReactMarkdown>
                 </div>
-              </CardContent>
-            </Card>
+            </section>
 
             {/* Gallery */}
             {metadata.gallery.length > 0 && (
-              <Card>
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">{t.gallery}</h2>
+              <section className="py-12 border-b border-rule">
+                  <h2 className="text-h2 text-ink mb-6">{t.gallery}</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {metadata.gallery.map((image, index) => (
                       <figure key={image.url}>
@@ -205,15 +199,13 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       </figure>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+            </section>
             )}
 
             {/* Videos */}
             {metadata.videos.length > 0 && (
-              <Card>
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">{t.videos}</h2>
+              <section className="py-12 border-b border-rule">
+                  <h2 className="text-h2 text-ink mb-6">{t.videos}</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {metadata.videos.map((video, index) => (
                       <div key={`${video.provider}-${video.id}`}>
@@ -244,17 +236,15 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       </div>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+            </section>
             )}
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {metadata.links.length > 0 && (
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="font-semibold mb-4">{t.links}</h2>
+              <section className="py-6 border-b border-rule">
+                  <h2 className="label text-slate mb-4">{t.links}</h2>
                   <div className="space-y-3">
                     {metadata.links.map((link) => (
                       <Button
@@ -271,14 +261,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       </Button>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+            </section>
             )}
 
             {metadata.technologies.length > 0 && (
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="font-semibold mb-4">{t.tech}</h2>
+              <section className="py-6 border-b border-rule">
+                  <h2 className="label text-slate mb-4">{t.tech}</h2>
                   <div className="flex flex-wrap gap-2">
                     {metadata.technologies.map((tech) => (
                       <Badge key={tech} variant="outline">
@@ -286,14 +274,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+            </section>
             )}
 
             {metadata.tags.length > 0 && (
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="font-semibold mb-4">{t.tags}</h2>
+              <section className="py-6 border-b border-rule">
+                  <h2 className="label text-slate mb-4">{t.tags}</h2>
                   <div className="flex flex-wrap gap-2">
                     {metadata.tags.map((tag) => (
                       <Badge key={tag} variant="secondary">
@@ -301,12 +287,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+            </section>
             )}
 
             {metadata.lastUpdated && (
-              <p className="text-sm text-muted-foreground px-1">
+              <p className="font-mono text-small text-slate py-4">
                 {t.lastUpdated}: {metadata.lastUpdated}
               </p>
             )}

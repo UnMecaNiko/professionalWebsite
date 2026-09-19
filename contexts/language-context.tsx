@@ -24,6 +24,7 @@ const translations = {
       toggleLanguage: "Cambiar a español",
       openMenu: "Open the menu",
       closeMenu: "Close the menu",
+      toggleTheme: "Switch between light and dark",
     },
 
     // Hero
@@ -34,6 +35,24 @@ const translations = {
         "Mechatronics Engineer, transforming businesses through innovative cloud architectures and AI solutions. Passionate educator bridging technology and learning.",
       cta: "View My Work",
       contact: "Get In Touch",
+      available: "Bogotá, Colombia",
+      /*
+        The three numbers that used to sit here — "5+ certifications",
+        "15+ projects", "50+ students" — had no source. Two of them were
+        wrong against knowledge/identity/, and a recruiter who audits one
+        claim and finds it inflated stops believing the rest of the page.
+        These three can each be pointed at a document.
+      */
+      facts: {
+        certificationsValue: "3",
+        certifications: "Huawei certifications: HCIP Cloud Service Solutions Architect (2025), HCIA AI and HCIA Cloud Service (2024)",
+        certificationsShort: "Huawei certifications",
+        projects: "Project write-ups published here, each with its scope, stack and outcome",
+        projectsShort: "Published projects",
+        orbitValue: "2025",
+        orbit: "RASCube-1 reached orbit carrying a board built by students I mentored, in a project joining schools from seven countries",
+        orbitShort: "Mentored hardware in orbit",
+      },
     },
 
     // About
@@ -58,16 +77,18 @@ const translations = {
       technicalEducatorDesc: "Training professionals in emerging technologies",
     },
 
+    career: {
+      title: "Career",
+      description: "Where the work above was done, and in what role.",
+      downloadCv: "Download CV (PDF)",
+      present: "Present",
+    },
+
     speaking: {
-      title: "Speaking & Education",
+      title: "Speaking & teaching",
       description:
-        "Sharing knowledge through conferences, workshops, and technical presentations across Latin America and beyond.",
-      previous: "Previous photo",
-      next: "Next photo",
-      goTo: "Go to photo",
-      pause: "Pause the slideshow",
-      play: "Play the slideshow",
-      region: "Speaking photos",
+        "Every photo below says where, when and to whom. Without those three, a photo is decoration.",
+      attendees: "attendees",
     },
 
     // Projects
@@ -107,6 +128,9 @@ const translations = {
       subtitle:
         "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss how we can optimize your processes and drive growth.",
       whatsapp: "Contact via WhatsApp",
+      emailLabel: "Email",
+      linkedinLabel: "LinkedIn",
+      whatsappLabel: "WhatsApp",
       whyWork: "Why Work With Me?",
       experience: "Resilience & Focus",
       experienceDesc: "I know how to recover from adversity and turn difficult challenges into growth opportunities",
@@ -151,6 +175,7 @@ const translations = {
       toggleLanguage: "Switch to English",
       openMenu: "Abrir el menú",
       closeMenu: "Cerrar el menú",
+      toggleTheme: "Cambiar entre claro y oscuro",
     },
 
     // Hero
@@ -161,6 +186,17 @@ const translations = {
         "Transformando empresas a través de arquitecturas en la nube y soluciones de IA. Educador apasionado que conecta tecnología y aprendizaje.",
       cta: "Ver Mi Trabajo",
       contact: "Contactar",
+      available: "Bogotá, Colombia",
+      facts: {
+        certificationsValue: "3",
+        certifications: "Certificaciones Huawei: HCIP Cloud Service Solutions Architect (2025), HCIA AI y HCIA Cloud Service (2024)",
+        certificationsShort: "Certificaciones Huawei",
+        projects: "Fichas de proyecto publicadas aquí, cada una con su alcance, stack y resultado",
+        projectsShort: "Proyectos publicados",
+        orbitValue: "2025",
+        orbit: "RASCube-1 llegó a órbita con una tarjeta construida por estudiantes que mentoricé, en un proyecto que reunió escuelas de siete países",
+        orbitShort: "Hardware mentorizado en órbita",
+      },
     },
 
     // About
@@ -185,16 +221,18 @@ const translations = {
       technicalEducatorDesc: "Formación de profesionales en tecnologías emergentes",
     },
 
+    career: {
+      title: "Trayectoria",
+      description: "Dónde se hizo el trabajo de arriba, y en qué papel.",
+      downloadCv: "Descargar CV (PDF)",
+      present: "Actualidad",
+    },
+
     speaking: {
-      title: "Conferencias y Educación",
+      title: "Conferencias y docencia",
       description:
-        "Compartiendo conocimiento a través de conferencias, talleres y presentaciones técnicas en Latinoamérica y más allá.",
-      previous: "Foto anterior",
-      next: "Foto siguiente",
-      goTo: "Ir a la foto",
-      pause: "Pausar la presentación",
-      play: "Reanudar la presentación",
-      region: "Fotos de conferencias",
+        "Cada foto dice dónde, cuándo y ante quién. Sin esos tres datos, una foto es decoración.",
+      attendees: "asistentes",
     },
 
     // Projects
@@ -235,6 +273,9 @@ const translations = {
       subtitle:
         "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y IA? Hablemos sobre cómo podemos optimizar tus procesos e impulsar el crecimiento.",
       whatsapp: "Contactar por WhatsApp",
+      emailLabel: "Correo",
+      linkedinLabel: "LinkedIn",
+      whatsappLabel: "WhatsApp",
       whyWork: "¿Por Qué Trabajar Conmigo?",
       experience: "Resiliencia y Enfoque",
       experienceDesc: "Sé recuperarme de la adversidad y convertir pruebas difíciles en oportunidades de crecimiento",

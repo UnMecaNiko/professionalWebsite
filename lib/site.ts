@@ -9,3 +9,14 @@ export const SITE_TITLE = "Nicolas Velasquez Lopez - Cloud & AI Solutions Archit
 
 export const SITE_DESCRIPTION =
   "Professional portfolio of Nicolas Velasquez Lopez, Cloud & AI Solutions Architect specializing in robotics and education"
+
+export const WHATSAPP_URL =
+  "https://wa.me/573204081631?text=Hola Nico, vi tu página web y quiero contactar contigo."
+
+export const LINKEDIN_URL = "https://www.linkedin.com/in/unmecaniko/"
+
+export const GITHUB_URL = "https://github.com/UnMecaNiko"
+
+export const YOUTUBE_URL = "https://www.youtube.com/@unmecaniko"
+
+export const EMAIL = "unmecaniko@gmail.com"

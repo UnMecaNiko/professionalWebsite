@@ -1,113 +1,102 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Github } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import type { Project } from "@/lib/github"
 import { formatYearRange } from "@/lib/format"
-import Link from "next/link"
-import Image from "next/image"
 
+/**
+ * Fixed reading order, and not negotiable:
+ *
+ *   cover 16:10 → category → title → role · years → one sentence →
+ *   one impact metric → one action
+ *
+ * Role and years come before the description because that is the first thing
+ * a recruiter needs. One metric as the hook; the rest belongs in the page.
+ * One button: "View Details" and "Code" used to compete at equal weight and
+ * neither won.
+ */
 export function ProjectsList({ projects }: { projects: Project[] }) {
   const { translations } = useLanguage()
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{translations.projects.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{translations.projects.subtitle}</p>
-        </div>
+    <section id="projects" className="border-b border-rule">
+      <div className="container mx-auto px-4 py-12 md:py-[4.5rem]">
+        <div className="grid grid-cols-1 lg:grid-cols-[190px_1fr] gap-8">
+          <h2 className="label text-blue pt-1">{translations.projects.title}</h2>
 
-        {projects.length === 0 ? (
-          <p className="text-center text-muted-foreground">{translations.projects.empty}</p>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project) => {
-              const { metadata } = project
-              const years = formatYearRange(metadata.startDate, metadata.endDate, translations.projects.ongoing)
-              const headlineMetric = metadata.metrics[0]
+          <div>
+            <p className="measure text-h3 font-normal text-ink mb-8">{translations.projects.subtitle}</p>
 
-              return (
-                <Card key={metadata.slug} className="overflow-hidden hover:shadow-xl transition-shadow group">
-                  <Link href={`/projects/${metadata.slug}`} className="block">
-                    <div className="relative h-64 overflow-hidden">
-                      <Image
-                        src={metadata.cover || "/project-thumbnail.png"}
-                        alt={metadata.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      {metadata.categories[0] && (
-                        <div className="absolute top-4 left-4">
-                          <Badge variant="secondary">{metadata.categories[0]}</Badge>
+            {projects.length === 0 ? (
+              <p className="text-slate">{translations.projects.empty}</p>
+            ) : (
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                {projects.map((project) => {
+                  const { metadata } = project
+                  const years = formatYearRange(metadata.startDate, metadata.endDate, translations.projects.ongoing)
+                  const headlineMetric = metadata.metrics[0]
+
+                  return (
+                    <li key={metadata.slug} className="group border border-rule rounded-[2px] overflow-hidden flex flex-col">
+                      <Link href={`/projects/${metadata.slug}`} className="block" tabIndex={-1} aria-hidden="true">
+                        <div className="relative w-full aspect-[16/10] bg-cream">
+                          <Image
+                            src={metadata.cover || "/project-thumbnail.png"}
+                            alt=""
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover"
+                          />
                         </div>
-                      )}
-                    </div>
-                  </Link>
-
-                  <CardHeader>
-                    {/* Role and years: the first thing a recruiter looks for. */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-                      {metadata.role.length > 0 && <span className="font-medium">{metadata.role.join(" · ")}</span>}
-                      {years && <span>{years}</span>}
-                    </div>
-                    <CardTitle className="text-xl">
-                      <Link href={`/projects/${metadata.slug}`} className="hover:text-accent transition-colors">
-                        {metadata.title}
                       </Link>
-                    </CardTitle>
-                  </CardHeader>
 
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">{metadata.description}</p>
+                      <div className="flex flex-col flex-1 p-6">
+                        {metadata.categories[0] && (
+                          <p className="label text-blue mb-3">{metadata.categories[0]}</p>
+                        )}
 
-                    {headlineMetric && (
-                      <p className="mb-4 text-sm">
-                        <span className="font-semibold text-foreground">
-                          {headlineMetric.value}
-                          {headlineMetric.unit ? ` ${headlineMetric.unit}` : ""}
-                        </span>{" "}
-                        <span className="text-muted-foreground">{headlineMetric.name}</span>
-                      </p>
-                    )}
+                        <h3 className="text-h3 text-ink">
+                          <Link href={`/projects/${metadata.slug}`} className="hover:text-blue transition-colors">
+                            {metadata.title}
+                          </Link>
+                        </h3>
 
-                    {metadata.technologies.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {metadata.technologies.slice(0, 6).map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
+                        <p className="font-mono text-small tabular text-slate mt-2">
+                          {[metadata.role.join(" · "), years].filter(Boolean).join("  ·  ")}
+                        </p>
+
+                        <p className="measure text-small text-slate mt-3">{metadata.description}</p>
+
+                        {headlineMetric && (
+                          <p className="mt-4 pt-4 border-t border-rule">
+                            <span className="text-h2 tabular text-ink">
+                              {headlineMetric.value}
+                              {headlineMetric.unit ? <span className="text-h3"> {headlineMetric.unit}</span> : null}
+                            </span>
+                            <span className="label block mt-1 text-slate">{headlineMetric.name}</span>
+                          </p>
+                        )}
+
+                        <p className="mt-auto pt-6">
+                          <Link
+                            href={`/projects/${metadata.slug}`}
+                            className="inline-flex items-center font-bold text-blue hover:underline underline-offset-4"
+                          >
+                            {translations.projects.viewDetails}
+                            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                          </Link>
+                        </p>
                       </div>
-                    )}
-
-                    <div className="flex gap-3">
-                      <Button size="sm" className="flex-1" asChild>
-                        <Link href={`/projects/${metadata.slug}`}>
-                          {translations.projects.viewDetails}
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-
-                      {metadata.github && (
-                        <Button size="sm" variant="outline" className="flex-1 bg-transparent" asChild>
-                          <a href={metadata.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-2 h-4 w-4" />
-                            {translations.projects.code}
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              )
-            })}
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </section>
   )
