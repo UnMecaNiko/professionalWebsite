@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 
 type Language = "en" | "es"
 
@@ -317,8 +317,27 @@ const translations = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
+/**
+ * Same rule Nicolas confirmed on 2026-09-18 for velasquezlopez.com and the
+ * other public sites: first browser language tag starting with `es` → Spanish;
+ * anything else → English. `navigator.languages[0]` is the first
+ * Accept-Language tag. The header toggle still overrides for the session.
+ */
+function languageFromBrowser(): Language {
+  const tag = (navigator.languages?.[0] || navigator.language || "en").toLowerCase()
+  return tag.indexOf("es") === 0 ? "es" : "en"
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
+
+  useEffect(() => {
+    setLanguage(languageFromBrowser())
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = language
+  }, [language])
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, translations: translations[language] }}>
