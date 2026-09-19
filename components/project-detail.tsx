@@ -22,7 +22,7 @@ function linkIcon(key: string) {
 
 function linkLabel({ key }: ProjectLink) {
   if (key.includes("repo")) return "Repository"
-  if (key.includes("demo")) return "Demo"
+  if (key.includes("demo")) return "Live demo"
   if (key.includes("deck")) return "Presentation"
   if (key.includes("post")) return "Post"
   return key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " ")
@@ -95,7 +95,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                     <Button asChild>
                       <a href={metadata.website} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="mr-2 h-4 w-4" />
-                        {t.viewProject}
+                        {t.liveDemo}
                       </a>
                     </Button>
                   )}
@@ -103,7 +103,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                     <Button variant="outline" asChild>
                       <a href={metadata.github} target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
-                        {t.code}
+                        {t.repository}
                       </a>
                     </Button>
                   )}
@@ -266,7 +266,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
             {metadata.technologies.length > 0 && (
               <section className="py-6 border-b border-rule">
-                  <h2 className="label text-slate mb-4">{t.tech}</h2>
+                  <h2 className="label text-slate mb-4">{t.stack}</h2>
                   <div className="flex flex-wrap gap-2">
                     {metadata.technologies.map((tech) => (
                       <Badge key={tech} variant="outline">

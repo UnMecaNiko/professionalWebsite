@@ -1,6 +1,6 @@
 "use client"
 
-import { Cloud, Bot, GraduationCap, Cpu } from "lucide-react"
+import { Cloud, MessagesSquare, GraduationCap, Cpu } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 /**
@@ -8,22 +8,28 @@ import { useLanguage } from "@/contexts/language-context"
  * are not clickable, so they lost their boxes and became rows separated by a
  * 1px rule. When everything sits in a shadowed container, nothing has
  * hierarchy and the page reads like an admin panel.
+ *
+ * The design canvas has no About section, so its copy has no mockup to be
+ * taken from. Every line below is the skills section of
+ * planning/career/cvs/general-resume.md — not a rewrite of the marketing prose
+ * that used to sit here ("transforming businesses through innovative…", "AI
+ * Developer", "machine learning models"), none of which any document backs.
  */
 export function About() {
   const { translations } = useLanguage()
   const t = translations.about
 
   const expertise = [
-    { icon: Cloud, title: t.cloud, description: t.cloudDesc },
-    { icon: Bot, title: t.ai, description: t.aiDesc },
-    { icon: Cpu, title: t.robotics, description: t.roboticsDesc },
-    { icon: GraduationCap, title: t.education, description: t.educationDesc },
+    { icon: MessagesSquare, title: t.discovery, description: t.discoveryDesc },
+    { icon: Cloud, title: t.solutions, description: t.solutionsDesc },
+    { icon: Cpu, title: t.programming, description: t.programmingDesc },
+    { icon: GraduationCap, title: t.teaching, description: t.teachingDesc },
   ]
 
   const roles = [
-    { title: t.solutionsArchitect, description: t.solutionsArchitectDesc },
-    { title: t.aiDeveloper, description: t.aiDeveloperDesc },
-    { title: t.technicalEducator, description: t.technicalEducatorDesc },
+    { title: t.technicalDiscovery, description: t.technicalDiscoveryDesc },
+    { title: t.demos, description: t.demosDesc },
+    { title: t.training, description: t.trainingDesc },
   ]
 
   return (

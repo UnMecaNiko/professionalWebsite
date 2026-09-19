@@ -1,23 +1,50 @@
 "use client"
 
-import { Linkedin, Mail, MessageCircle } from "lucide-react"
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
-import { EMAIL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/site"
+import { EMAIL, GITHUB_URL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/site"
 
 /**
- * Email first, LinkedIn second, WhatsApp third. The block sits on ink, and
+ * Email, LinkedIn, WhatsApp, GitHub — the four channels the mockup draws, each
+ * with the one line that says what it is good for. The block sits on ink, and
  * its labels are the only lime in the whole page: the colour is unreadable on
  * light backgrounds (1.56 on paper, measured) and pulls the palette towards
  * "startup". It appears once, which is why it registers.
+ *
+ * The "Why work with me?" block that used to close this section is gone. It
+ * was four self-assessments ("I leave a part of myself in every project") with
+ * nothing behind them, and the mockup does not have it.
  */
 export function Contact() {
   const { translations } = useLanguage()
   const t = translations.contact
 
   const channels = [
-    { label: t.emailLabel, icon: Mail, value: EMAIL, href: `mailto:${EMAIL}`, external: false },
-    { label: t.linkedinLabel, icon: Linkedin, value: "/in/unmecaniko", href: LINKEDIN_URL, external: true },
-    { label: t.whatsappLabel, icon: MessageCircle, value: "+57 320 408 1631", href: WHATSAPP_URL, external: true },
+    { label: t.emailLabel, hint: t.emailHint, icon: Mail, value: EMAIL, href: `mailto:${EMAIL}`, external: false },
+    {
+      label: t.linkedinLabel,
+      hint: t.linkedinHint,
+      icon: Linkedin,
+      value: "/in/unmecaniko",
+      href: LINKEDIN_URL,
+      external: true,
+    },
+    {
+      label: t.whatsappLabel,
+      hint: t.whatsappHint,
+      icon: MessageCircle,
+      value: "+57 320 408 1631",
+      href: WHATSAPP_URL,
+      external: true,
+    },
+    {
+      label: t.githubLabel,
+      hint: t.githubHint,
+      icon: Github,
+      value: "@UnMecaNiko",
+      href: GITHUB_URL,
+      external: true,
+    },
   ]
 
   return (
@@ -40,25 +67,13 @@ export function Contact() {
                   >
                     <channel.icon className="h-5 w-5 text-lime" aria-hidden="true" />
                     <span className="label text-lime">{channel.label}</span>
-                    <span className="col-start-2 sm:col-start-3 text-h3 text-on-dark group-hover:underline underline-offset-4 break-all">
-                      {channel.value}
+                    <span className="col-start-2 sm:col-start-3">
+                      <span className="block text-h3 text-on-dark group-hover:underline underline-offset-4 break-all">
+                        {channel.value}
+                      </span>
+                      <span className="block font-mono text-small text-on-dark/60 mt-1">{channel.hint}</span>
                     </span>
                   </a>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="label text-lime mt-12 pb-2 border-b border-on-dark/20">{t.whyWork}</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-              {[
-                { title: t.experience, description: t.experienceDesc },
-                { title: t.education, description: t.educationDesc },
-                { title: t.innovation, description: t.innovationDesc },
-                { title: t.responsibleDesign, description: t.responsibleDesignDesc },
-              ].map((item) => (
-                <li key={item.title} className="py-4 border-b border-on-dark/20">
-                  <h4 className="text-body font-bold text-on-dark">{item.title}</h4>
-                  <p className="text-small text-on-dark/75 mt-1">{item.description}</p>
                 </li>
               ))}
             </ul>

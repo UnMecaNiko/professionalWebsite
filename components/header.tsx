@@ -5,14 +5,20 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, Globe, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useLanguage } from "@/contexts/language-context"
-import { WHATSAPP_URL } from "@/lib/site"
+import { CV_URL } from "@/lib/site"
 
 /**
  * The navigation is made of real anchors. It used to be `<button>` plus
  * `scrollIntoView`, which a crawler cannot follow and a keyboard user cannot
  * open in a new tab. The smooth scroll now lives in CSS.
+ *
+ * Work / Career / Contact, as the mockup draws it: the work comes first.
  */
-const SECTIONS = ["about", "projects", "contact"] as const
+const SECTIONS = [
+  { key: "work", href: "#projects" },
+  { key: "career", href: "#career" },
+  { key: "contact", href: "#contact" },
+] as const
 
 /**
  * The theme switch. `next-themes` resolves the system preference on the
@@ -64,11 +70,11 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8" aria-label={translations.nav.home}>
             {SECTIONS.map((section) => (
               <a
-                key={section}
-                href={`#${section}`}
+                key={section.key}
+                href={section.href}
                 className="text-foreground/80 hover:text-primary transition-colors font-medium"
               >
-                {translations.nav[section]}
+                {translations.nav[section.key]}
               </a>
             ))}
             <Button
@@ -83,8 +89,8 @@ export function Header() {
             </Button>
             <ThemeToggle label={translations.nav.toggleTheme} />
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                {translations.nav.workTogether}
+              <a href={CV_URL} target="_blank" rel="noopener noreferrer">
+                {translations.nav.downloadCv}
               </a>
             </Button>
           </nav>
@@ -119,18 +125,18 @@ export function Header() {
             <nav className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               {SECTIONS.map((section) => (
                 <a
-                  key={section}
-                  href={`#${section}`}
+                  key={section.key}
+                  href={section.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
                 >
-                  {translations.nav[section]}
+                  {translations.nav[section.key]}
                 </a>
               ))}
               <div className="px-3 py-2">
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    {translations.nav.workTogether}
+                  <a href={CV_URL} target="_blank" rel="noopener noreferrer">
+                    {translations.nav.downloadCv}
                   </a>
                 </Button>
               </div>

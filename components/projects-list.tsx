@@ -28,7 +28,7 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
           <h2 className="label text-blue pt-1">{translations.projects.title}</h2>
 
           <div>
-            <p className="measure text-h3 font-normal text-ink mb-8">{translations.projects.subtitle}</p>
+            <p className="label text-slate mb-8">{translations.projects.annotation(projects.length)}</p>
 
             {projects.length === 0 ? (
               <p className="text-slate">{translations.projects.empty}</p>
@@ -85,7 +85,7 @@ export function ProjectsList({ projects }: { projects: Project[] }) {
                             href={`/projects/${metadata.slug}`}
                             className="inline-flex items-center font-bold text-blue hover:underline underline-offset-4"
                           >
-                            {translations.projects.viewDetails}
+                            {translations.projects.readCase}
                             <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                           </Link>
                         </p>

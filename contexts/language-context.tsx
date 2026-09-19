@@ -10,16 +10,27 @@ interface LanguageContextType {
   translations: typeof translations.en
 }
 
+/**
+ * The English strings are the copy of the phase 3 design canvas, transcribed
+ * literally. The Spanish ones are their translation: the site is bilingual
+ * only in its interface, so every English line needs a Spanish twin.
+ *
+ * Nothing here is written from scratch. What the mockups do not cover — the
+ * About section, the footer — comes from planning/career/cvs/general-resume.md
+ * in the knowledge repository, which is itself sourced from
+ * knowledge/identity/. No claim on this page exists without a document behind
+ * it.
+ */
 const translations = {
   en: {
     name: "Nicolas Velasquez Lopez",
-    
+
     // Header
     nav: {
-      about: "About",
-      projects: "Projects",
+      work: "Work",
+      career: "Career",
       contact: "Contact",
-      workTogether: "Let's Work Together",
+      downloadCv: "Download CV",
       home: "Back to the top",
       toggleLanguage: "Cambiar a español",
       openMenu: "Open the menu",
@@ -29,88 +40,90 @@ const translations = {
 
     // Hero
     hero: {
-      greeting: "Hi, I'm",
-      title: "Cloud Solutions Architect & AI Specialist",
+      eyebrow: "Mechatronics Engineer · Bogotá, Colombia",
+      headline: "I turn business problems into architectures, demos and systems that ship.",
       subtitle:
-        "Mechatronics Engineer, transforming businesses through innovative cloud architectures and AI solutions. Passionate educator bridging technology and learning.",
-      cta: "View My Work",
-      contact: "Get In Touch",
-      available: "Bogotá, Colombia",
+        "Cloud and AI solutions engineering for customer-facing work, with hands-on robotics and hardware behind it. I build the thing, then I explain it to the people who have to buy it.",
+      seeWork: "See the work",
+      downloadCv: "Download CV",
       /*
         The three numbers that used to sit here — "5+ certifications",
-        "15+ projects", "50+ students" — had no source. Two of them were
-        wrong against knowledge/identity/, and a recruiter who audits one
-        claim and finds it inflated stops believing the rest of the page.
-        These three can each be pointed at a document.
+        "15+ projects", "50+ students" — had no source. Two of them were wrong
+        against knowledge/identity/, and a recruiter who audits one claim and
+        finds it inflated stops believing the rest of the page. These three can
+        each be pointed at a document.
       */
       facts: {
-        certificationsValue: "3",
-        certifications: "Huawei certifications: HCIP Cloud Service Solutions Architect (2025), HCIA AI and HCIA Cloud Service (2024)",
-        certificationsShort: "Huawei certifications",
-        projects: "Project write-ups published here, each with its scope, stack and outcome",
-        projectsShort: "Published projects",
-        orbitValue: "2025",
-        orbit: "RASCube-1 reached orbit carrying a board built by students I mentored, in a project joining schools from seven countries",
-        orbitShort: "Mentored hardware in orbit",
+        certifiedLabel: "Certified",
+        certified: "HCIP Cloud Service Solutions Architect, 2025 — plus HCIA in AI and Cloud",
+        documentedLabel: "Documented",
+        documented: (count: number) => `${count} projects written up in full, from CNC hardware to AI agents`,
+        orbitLabel: "In orbit",
+        orbit: "Mentored student hardware that launched into space — Space Call, 7 nations",
       },
     },
 
-    // About
+    // About — source: planning/career/cvs/general-resume.md
     about: {
-      title: "About Me",
+      title: "About",
       description:
-        "I'm mechatronics engineer. I combine deep technical expertise in cloud computing, AI, and robotics with strong communication skills and business acumen. My philosophy centers on continuous learning, respect for others, and the belief that collaboration builds greater things.",
-      expertise: "Areas of Expertise",
-      cloud: "Cloud Architecture",
-      cloudDesc: "Cloud solutions, Terraform, security and cost optimization",
-      ai: "Artificial Intelligence",
-      aiDesc: "Transforming businesses with AI solutions, guiding their journey, and fostering a culture of learning",
-      robotics: "Robotics & Automation",
-      roboticsDesc: "ROS, Gazebo, MATLAB, Simulink, and autonomous systems",
-      education: "Education & Training",
-      educationDesc: "Co-founder of Lápiz Labs, technical training and mentorship",
-      solutionsArchitect: "Solutions Architect",
-      solutionsArchitectDesc: "Specialized in cloud migration and infrastructure optimization",
-      aiDeveloper: "AI Developer",
-      aiDeveloperDesc: "Implementation of machine learning models and intelligent automation",
-      technicalEducator: "Technical Educator",
-      technicalEducatorDesc: "Training professionals in emerging technologies",
+        "Mechatronics Engineer and Solutions Engineer. I lead technical discovery to understand architecture, requirements, business objectives and success criteria, then turn those needs into demonstrations and solution paths that business and managerial audiences can decide on.",
+      expertise: "Areas of expertise",
+      discovery: "Discovery & communication",
+      discoveryDesc:
+        "Technical discovery, explaining architecture and trade-offs to business and managerial audiences, demonstrations, proofs of concept, customer training.",
+      solutions: "Solutions & systems",
+      solutionsDesc: "Solution architecture, Huawei Cloud, Linux, Docker, Kubernetes, REST APIs, HubSpot.",
+      programming: "Programming & robotics",
+      programmingDesc:
+        "Python for robot control and automation, C++ in academic and embedded projects, MATLAB/Simulink, Git. ROS 1; ROS 2 Jazzy in progress.",
+      teaching: "Teaching",
+      teachingDesc:
+        "Curriculum design, instructor training, webinars on AI and Kubernetes, robotics and programming instruction.",
+      technicalDiscovery: "Technical discovery",
+      technicalDiscoveryDesc:
+        "Leads sessions with customers to understand architecture, requirements, business objectives and success criteria.",
+      demos: "Demos and proofs of concept",
+      demosDesc: "Designs and presents tailored demonstrations with sales, product and engineering.",
+      training: "Technical training",
+      trainingDesc:
+        "Webinars and training on AI and Kubernetes for technical and business audiences in Colombia and Ecuador.",
     },
 
     career: {
       title: "Career",
-      description: "Where the work above was done, and in what role.",
+      annotation: "chronological",
+      education: "Education",
       downloadCv: "Download CV (PDF)",
       present: "Present",
     },
 
     speaking: {
       title: "Speaking & teaching",
-      description:
-        "Every photo below says where, when and to whom. Without those three, a photo is decoration.",
+      annotation: "selected sessions",
+      description: "Every photo below says where, when and to whom. Without those three, a photo is decoration.",
       attendees: "attendees",
     },
 
     // Projects
     projects: {
-      title: "Featured Projects",
-      subtitle: "Explore my work in cloud migration, robotics education, and innovative engineering solutions",
-      viewDetails: "View Details",
-      code: "Code",
+      title: "Selected work",
+      annotation: (count: number) => `${count} projects · newest first`,
+      readCase: "Read the case",
       empty: "No projects available right now.",
       ongoing: "Present",
     },
 
     // Project detail page
     project: {
-      back: "Back to projects",
-      viewProject: "View Project",
-      code: "Code",
+      back: "All work",
+      liveDemo: "Live demo",
+      repository: "Repository",
       impact: "Impact",
       gallery: "Gallery",
       videos: "Videos",
       links: "Links",
-      tech: "Tech",
+      stack: "Stack",
       tags: "Tags",
       lastUpdated: "Last updated",
       ongoing: "Present",
@@ -124,53 +137,49 @@ const translations = {
 
     // Contact
     contact: {
-      title: "Let's Build Something Amazing Together",
+      title: "Tell me what you are trying to build.",
       subtitle:
-        "Ready to transform your business with cutting-edge cloud and AI solutions? Let's discuss how we can optimize your processes and drive growth.",
+        "Pre-sales engineering, cloud and AI architecture, or a robotics pilot that needs someone who can both build it and explain it.",
       whatsapp: "Contact via WhatsApp",
       emailLabel: "Email",
+      emailHint: "Best for anything with detail",
       linkedinLabel: "LinkedIn",
+      linkedinHint: "Where the work gets posted",
       whatsappLabel: "WhatsApp",
-      whyWork: "Why Work With Me?",
-      experience: "Resilience & Focus",
-      experienceDesc: "I know how to recover from adversity and turn difficult challenges into growth opportunities",
-      education: "Creative Problem Solving",
-      educationDesc: "I explore different paths until finding the best solution for each unique challenge",
-      innovation: "Commitment to Excellence",
-      innovationDesc: "In every project I leave a part of myself and never stop learning and improving",
-      responsibleDesign: "Responsible Design",
-      responsibleDesignDesc:
-        "I think about scalability, performance, availability, cost, and security when creating solutions",
+      whatsappHint: "Colombia · fastest reply",
+      githubLabel: "GitHub",
+      githubHint: "Code behind the projects",
     },
 
     footer: {
       description:
-        "Mechatronics Engineer and Cloud Solutions Architect. Transforming businesses through innovative cloud architectures, AI solutions, and robotics education.",
+        "Mechatronics Engineer and Solutions Engineer. Technical discovery, cloud and AI architecture, and the robotics and hardware work behind them.",
       services: {
-        title: "Services",
+        title: "What I do",
         list: [
-          "Cloud Architecture Design",
-          "AI Strategy & Implementation",
-          "Robotics Systems",
-          "Technical Training",
-          "Business Consulting",
+          "Technical discovery",
+          "Cloud and AI architecture",
+          "Demos and proofs of concept",
+          "Technical training",
+          "Robotics and hardware",
         ],
       },
       contact: {
         title: "Contact",
       },
       copyright: "© 2026 Nicolas Velasquez Lopez. All rights reserved.",
-      tagline: "Cloud Solutions Architect • AI Specialist • Robotics Educator • Colombia",
+      tagline: "Mechatronics Engineer • Solutions Engineer • Bogotá, Colombia",
     },
   },
   es: {
     name: "Nicolas Velasquez Lopez",
+
     // Header
     nav: {
-      about: "Sobre Mí",
-      projects: "Proyectos",
+      work: "Trabajo",
+      career: "Trayectoria",
       contact: "Contacto",
-      workTogether: "Trabajemos Juntos",
+      downloadCv: "Descargar CV",
       home: "Volver al inicio",
       toggleLanguage: "Switch to English",
       openMenu: "Abrir el menú",
@@ -180,82 +189,83 @@ const translations = {
 
     // Hero
     hero: {
-      greeting: "Hola, soy",
-      title: "Arquitecto de Soluciones en Nube e IA",
+      eyebrow: "Ingeniero Mecatrónico · Bogotá, Colombia",
+      headline: "Convierto problemas de negocio en arquitecturas, demos y sistemas que salen a producción.",
       subtitle:
-        "Transformando empresas a través de arquitecturas en la nube y soluciones de IA. Educador apasionado que conecta tecnología y aprendizaje.",
-      cta: "Ver Mi Trabajo",
-      contact: "Contactar",
-      available: "Bogotá, Colombia",
+        "Ingeniería de soluciones en nube e IA de cara al cliente, con robótica y hardware hechos a mano detrás. Construyo la cosa y después se la explico a quien tiene que comprarla.",
+      seeWork: "Ver el trabajo",
+      downloadCv: "Descargar CV",
       facts: {
-        certificationsValue: "3",
-        certifications: "Certificaciones Huawei: HCIP Cloud Service Solutions Architect (2025), HCIA AI y HCIA Cloud Service (2024)",
-        certificationsShort: "Certificaciones Huawei",
-        projects: "Fichas de proyecto publicadas aquí, cada una con su alcance, stack y resultado",
-        projectsShort: "Proyectos publicados",
-        orbitValue: "2025",
-        orbit: "RASCube-1 llegó a órbita con una tarjeta construida por estudiantes que mentoricé, en un proyecto que reunió escuelas de siete países",
-        orbitShort: "Hardware mentorizado en órbita",
+        certifiedLabel: "Certificado",
+        certified: "HCIP Cloud Service Solutions Architect, 2025 — más HCIA en IA y en Cloud",
+        documentedLabel: "Documentado",
+        documented: (count: number) => `${count} proyectos escritos completos, desde hardware CNC hasta agentes de IA`,
+        orbitLabel: "En órbita",
+        orbit: "Mentoricé hardware estudiantil que llegó al espacio — Space Call, 7 naciones",
       },
     },
 
     // About
     about: {
-      title: "Sobre Mí",
+      title: "Sobre mí",
       description:
-        "Soy ingeniero mecatrónico. Combino experiencia técnica profunda en computación en la nube, IA y robótica con habilidades de comunicación sólidas y visión de negocio. Mi filosofía se centra en el aprendizaje continuo, el respeto por otros y la creencia de que la colaboración construye cosas más grandes.",
-      expertise: "Áreas de Especialización",
-      cloud: "Arquitectura en la Nube",
-      cloudDesc: "Soluciones Cloud, Terraform, seguridad y optimización de costos",
-      ai: "Inteligencia Artificial",
-      aiDesc: "Liderazgo en IA, TensorFlow, Ollama, LangChain y estrategia de negocio",
-      robotics: "Robótica y Automatización",
-      roboticsDesc: "ROS, Gazebo, MATLAB, Simulink y sistemas autónomos",
-      education: "Educación y Capacitación",
-      educationDesc: "Co-fundador de Lápiz Labs, formación técnica y mentoría",
-      solutionsArchitect: "Arquitecto de Soluciones",
-      solutionsArchitectDesc: "Especializado en migración a la nube y optimización de infraestructura",
-      aiDeveloper: "Desarrollador de IA",
-      aiDeveloperDesc: "Implementación de modelos de aprendizaje automático y automatización inteligente",
-      technicalEducator: "Educador Técnico",
-      technicalEducatorDesc: "Formación de profesionales en tecnologías emergentes",
+        "Ingeniero mecatrónico e ingeniero de soluciones. Dirijo el descubrimiento técnico para entender arquitectura, requisitos, objetivos de negocio y criterios de éxito, y convierto esas necesidades en demostraciones y caminos de solución que una audiencia de negocio o gerencial puede decidir.",
+      expertise: "Áreas de especialización",
+      discovery: "Descubrimiento y comunicación",
+      discoveryDesc:
+        "Descubrimiento técnico, explicar arquitectura y sus compromisos a audiencias de negocio y gerenciales, demostraciones, pruebas de concepto, formación a clientes.",
+      solutions: "Soluciones y sistemas",
+      solutionsDesc: "Arquitectura de soluciones, Huawei Cloud, Linux, Docker, Kubernetes, APIs REST, HubSpot.",
+      programming: "Programación y robótica",
+      programmingDesc:
+        "Python para control de robots y automatización, C++ en proyectos académicos y embebidos, MATLAB/Simulink, Git. ROS 1; ROS 2 Jazzy en curso.",
+      teaching: "Docencia",
+      teachingDesc:
+        "Diseño de currículo, formación de instructores, webinars de IA y Kubernetes, enseñanza de robótica y programación.",
+      technicalDiscovery: "Descubrimiento técnico",
+      technicalDiscoveryDesc:
+        "Dirige sesiones con clientes para entender arquitectura, requisitos, objetivos de negocio y criterios de éxito.",
+      demos: "Demos y pruebas de concepto",
+      demosDesc: "Diseña y presenta demostraciones a la medida junto a ventas, producto e ingeniería.",
+      training: "Formación técnica",
+      trainingDesc:
+        "Webinars y formación en IA y Kubernetes para audiencias técnicas y de negocio en Colombia y Ecuador.",
     },
 
     career: {
       title: "Trayectoria",
-      description: "Dónde se hizo el trabajo de arriba, y en qué papel.",
+      annotation: "cronológica",
+      education: "Formación",
       downloadCv: "Descargar CV (PDF)",
       present: "Actualidad",
     },
 
     speaking: {
       title: "Conferencias y docencia",
-      description:
-        "Cada foto dice dónde, cuándo y ante quién. Sin esos tres datos, una foto es decoración.",
+      annotation: "sesiones seleccionadas",
+      description: "Cada foto dice dónde, cuándo y ante quién. Sin esos tres datos, una foto es decoración.",
       attendees: "asistentes",
     },
 
     // Projects
     projects: {
-      title: "Proyectos Destacados",
-      subtitle:
-        "Explora mi trabajo en migración a la nube, educación en robótica y soluciones de ingeniería innovadoras",
-      viewDetails: "Ver Detalles",
-      code: "Código",
+      title: "Trabajo seleccionado",
+      annotation: (count: number) => `${count} proyectos · más reciente primero`,
+      readCase: "Leer el caso",
       empty: "No hay proyectos disponibles en este momento.",
       ongoing: "Actualidad",
     },
 
     // Project detail page
     project: {
-      back: "Volver a proyectos",
-      viewProject: "Ver Proyecto",
-      code: "Código",
+      back: "Todo el trabajo",
+      liveDemo: "Demo en vivo",
+      repository: "Repositorio",
       impact: "Impacto",
       gallery: "Galería",
       videos: "Videos",
       links: "Enlaces",
-      tech: "Tecnologías",
+      stack: "Stack",
       tags: "Etiquetas",
       lastUpdated: "Última actualización",
       ongoing: "Actualidad",
@@ -269,43 +279,38 @@ const translations = {
 
     // Contact
     contact: {
-      title: "Construyamos Algo Increíble Juntos",
+      title: "Cuéntame qué estás tratando de construir.",
       subtitle:
-        "¿Listo para transformar tu negocio con soluciones de vanguardia en la nube y IA? Hablemos sobre cómo podemos optimizar tus procesos e impulsar el crecimiento.",
+        "Ingeniería de preventa, arquitectura en nube e IA, o un piloto de robótica que necesita a alguien capaz de construirlo y de explicarlo.",
       whatsapp: "Contactar por WhatsApp",
       emailLabel: "Correo",
+      emailHint: "Lo mejor para algo con detalle",
       linkedinLabel: "LinkedIn",
+      linkedinHint: "Donde se publica el trabajo",
       whatsappLabel: "WhatsApp",
-      whyWork: "¿Por Qué Trabajar Conmigo?",
-      experience: "Resiliencia y Enfoque",
-      experienceDesc: "Sé recuperarme de la adversidad y convertir pruebas difíciles en oportunidades de crecimiento",
-      education: "Creatividad para Resolver Problemas",
-      educationDesc: "Busco distintos caminos hasta encontrar la mejor solución para cada desafío único",
-      innovation: "Compromiso con la Excelencia",
-      innovationDesc: "En cada proyecto dejo una parte de mí y nunca dejo de aprender y mejorar",
-      responsibleDesign: "Diseño Responsable",
-      responsibleDesignDesc:
-        "Pienso en la escalabilidad, performance, disponibilidad, precio y seguridad al crear soluciones",
+      whatsappHint: "Colombia · la respuesta más rápida",
+      githubLabel: "GitHub",
+      githubHint: "El código detrás de los proyectos",
     },
 
     footer: {
       description:
-        "Ingeniero Mecatrónico y Arquitecto de Soluciones en Nube. Transformando empresas a través de arquitecturas innovadoras en la nube, soluciones de IA y educación en robótica.",
+        "Ingeniero mecatrónico e ingeniero de soluciones. Descubrimiento técnico, arquitectura en nube e IA, y el trabajo de robótica y hardware que hay detrás.",
       services: {
-        title: "Servicios",
+        title: "Qué hago",
         list: [
-          "Diseño de Arquitectura en Nube",
-          "Estrategia e Implementación de IA",
-          "Sistemas Robóticos",
-          "Formación Técnica",
-          "Consultoría Empresarial",
+          "Descubrimiento técnico",
+          "Arquitectura en nube e IA",
+          "Demos y pruebas de concepto",
+          "Formación técnica",
+          "Robótica y hardware",
         ],
       },
       contact: {
         title: "Contacto",
       },
       copyright: "© 2026 Nicolas Velasquez Lopez. Todos los derechos reservados.",
-      tagline: "Arquitecto de Soluciones • Especialista en IA • Educador en Robótica • Colombia",
+      tagline: "Ingeniero Mecatrónico • Ingeniero de Soluciones • Bogotá, Colombia",
     },
   },
 }

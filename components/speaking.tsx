@@ -47,7 +47,8 @@ export function Speaking() {
           <h2 className="label text-blue pt-1">{t.title}</h2>
 
           <div>
-            <p className="measure text-h3 font-normal text-ink mb-8">{t.description}</p>
+            <p className="label text-slate mb-3">{t.annotation}</p>
+            <p className="measure text-body text-slate mb-8">{t.description}</p>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {PHOTOS.map((photo) => (

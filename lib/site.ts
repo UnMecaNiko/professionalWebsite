@@ -20,3 +20,10 @@ export const GITHUB_URL = "https://github.com/UnMecaNiko"
 export const YOUTUBE_URL = "https://www.youtube.com/@unmecaniko"
 
 export const EMAIL = "unmecaniko@gmail.com"
+
+/**
+ * The general resume, built in the knowledge repository from
+ * knowledge/identity/ (planning/career/cvs/general-resume.pdf). It is the
+ * default sheet: the one to hand out when there is no target role yet.
+ */
+export const CV_URL = "/nicolas-velasquez-lopez-cv.pdf"
